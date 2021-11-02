@@ -18,11 +18,39 @@
 		canvas {
 			display: block;
 		}
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .info {
+      width: 550px;
+      height: 50px;
+      font-family: sinko;
+      position: absolute;
+      top: 100px;
+      left: 30%;
+      text-align: center;
+    }
+    .game {
+      position: absolute;
+      top: 250px;
+      left: 30%;
+    }
 	</style>
 </head>
 
 <body>
-{{kaboom}}
+  <!-- Explain this -->
+  <div class="container">
+    <div class="info">
+      <h1>T-Rex Chrome Dinosaur</h1>
+      <p>Google Dino Game!</p>
+    </div>
+    <div class="game">
+    </div>
+  </div>
+  {{kaboom}}
 </body>
 
 </html>
