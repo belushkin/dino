@@ -9,6 +9,7 @@ Dino game has been written using kaboom.js library in educational purposes.
 ## Technologies
 - Javascript
 
-## Replit
+## Resources
 - https://replit.com/@maaxb/dino-game
 - https://dino-game.maaxb.repl.co
+- https://www.youtube.com/watch?v=QDuR6kSggqk
