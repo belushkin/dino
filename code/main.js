@@ -1,13 +1,6 @@
-import kaboom from "kaboom";
+import k from "./kaboom";
 
-// initialize context
-kaboom({
-  width: 680,
-  height: 120,
-  background: [ 255, 255, 255, ],
-  // Explain this
-  root: document.querySelector("body > div > div.game")
-});
+import floor from "./src/floor";
 
 // Explain this
 // loadSpriteAtlas("sprites/dino.png", {
@@ -31,4 +24,8 @@ const dino = add([
     sprite("dino"),
 ]);
 
+// Init floor
+floor();
+
 dino.play("run");
+// floor.play("move");

@@ -2,7 +2,7 @@
 	"dino": {
 		"x": 1340,
 		"y": 3,
-		"width": 527,
+		"width": 525,
 		"height": 95,
 		"sliceX": 6,
 		"anims": {
@@ -25,5 +25,12 @@
 				"loop": true
 			}
 		}
-	}
+	},
+  "floor": {
+    "x": 5,
+		"y": 105,
+		"width": 3000,
+		"height": 50,
+		"sliceX": 20
+  }
 }
