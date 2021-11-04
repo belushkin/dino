@@ -1,6 +1,12 @@
 import k from "./kaboom";
 
-import floor from "./src/floor";
+import floor, {realFloor} from "./src/floor";
+
+const DINO_POSITION_X = 0;
+const DINO_POSITION_Y = 129;
+const JUMP_FORCE = 800;
+
+let floor_initialized = false;
 
 // Explain this
 // loadSpriteAtlas("sprites/dino.png", {
@@ -19,13 +25,40 @@ import floor from "./src/floor";
 // });
 loadSpriteAtlas("sprites/dino.png", "sprites/dino.json");
 
-const dino = add([
-    // pos(50, 50),
-    sprite("dino"),
+gravity(2400);
+
+// Begin of the game character
+const start = add([
+  pos(DINO_POSITION_X, DINO_POSITION_Y),
+  sprite("start"),
 ]);
 
-// Init floor
-floor();
+// Draw dino at the same time over start dino
+const dino = add([
+  pos(DINO_POSITION_X, DINO_POSITION_Y),
+  area(),
+  body(),
+  sprite("dino"),
+]);
 
-dino.play("run");
+
+// jump when player presses "space" key
+keyPress("space", () => {
+  // Initialize floor on first space pressed
+  if (!floor_initialized) {
+    floor();
+    floor_initialized = true;
+    dino.play("run");
+  }
+  destroy(start);
+  if (dino.grounded()) {
+    dino.jump(JUMP_FORCE);
+  }
+});
+
+
+
+// Init floor
+realFloor();
+
 // floor.play("move");
