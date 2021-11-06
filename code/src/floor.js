@@ -2,7 +2,7 @@ import k from "./../kaboom";
 
 const FLOOR_POSITION_Y = 196;
 const FLOOR_MOVEMENT_STEP = 150;
-const FLOOR_FRAMES = [0,1,2,3,4];
+const FLOOR_FRAMES = [0,1,2,3,4,5,6];
 
 const FLOOR_HEIGHT = 1;
 

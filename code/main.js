@@ -1,10 +1,10 @@
 import k from "./kaboom";
 
 import floor, {realFloor} from "./src/floor";
+import jump from './src/jump';
 
 const DINO_POSITION_X = 0;
 const DINO_POSITION_Y = 129;
-const JUMP_FORCE = 800;
 
 let floor_initialized = false;
 
@@ -27,29 +27,7 @@ const dino = add([
 ]);
 
 // jump when player presses "space" key
-keyPress("space", () => {
-  // Initialize floor on first space pressed
-  if (!floor_initialized) {
-    floor();
-    floor_initialized = true;
-  }
-
-  dino.play("idle");
-
-  if (start.exists()) {
-    destroy(start);
-  }
-
-  if (dino.grounded()) {
-    dino.jump(JUMP_FORCE);
-  }
-});
-
-dino.on("ground", () => {
-  if (floor_initialized) {
-    dino.play("run");
-  }
-});
+jump(floor_initialized, dino, start);
 
 // Init floor
 realFloor();
