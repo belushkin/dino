@@ -21,11 +21,10 @@ export default function jump(floor_initialized, dino, start) {
       dino.jump(JUMP_FORCE);
     }
   });
-  
+
   dino.on("ground", () => {
     if (floor_initialized) {
       dino.play("run");
     }
   });
-
 }
