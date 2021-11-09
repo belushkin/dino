@@ -2,6 +2,7 @@ import k from "./kaboom";
 
 import { realFloor } from "./src/floor";
 import jump from "./src/jump";
+import cloud from "./src/cloud";
 
 const DINO_POSITION_X = 0;
 const DINO_POSITION_Y = 129;
@@ -11,6 +12,11 @@ let floor_initialized = false;
 loadSpriteAtlas("sprites/dino.png", "sprites/dino.json");
 
 gravity(2400);
+
+layers([
+    "ui",
+    "game",
+], "game")
 
 // Begin of the game character
 const start = add([pos(DINO_POSITION_X, DINO_POSITION_Y), sprite("start")]);
@@ -25,6 +31,8 @@ const dino = add([
 
 // jump when player presses "space" key
 jump(floor_initialized, dino, start);
+
+cloud();
 
 // Init floor
 realFloor();
