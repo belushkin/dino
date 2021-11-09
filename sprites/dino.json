@@ -45,5 +45,47 @@
 		"width": 100,
 		"height": 30,
 		"sliceX": 1
+  },
+  "0cactus1": {
+    "x": 444,
+		"y": 1,
+		"width": 36,
+		"height": 75,
+		"sliceX": 1
+  },
+  "0cactus2": {
+    "x": 480,
+		"y": 1,
+		"width": 68,
+		"height": 75,
+		"sliceX": 1
+  },
+  "0cactus3": {
+    "x": 548,
+		"y": 1,
+		"width": 103,
+		"height": 75,
+		"sliceX": 1
+  },
+  "1cactus1": {
+    "x": 651,
+		"y": 1,
+		"width": 51,
+		"height": 105,
+		"sliceX": 1
+  },
+   "1cactus2": {
+    "x": 702,
+		"y": 1,
+		"width": 100,
+		"height": 105,
+		"sliceX": 1
+  },
+   "1cactus3": {
+    "x": 802,
+		"y": 1,
+		"width": 150,
+		"height": 105,
+		"sliceX": 1
   }
 }

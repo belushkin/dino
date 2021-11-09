@@ -3,6 +3,7 @@ import k from "./kaboom";
 import { realFloor } from "./src/floor";
 import jump from "./src/jump";
 import cloud from "./src/cloud";
+import cactus from "./src/cactus";
 
 const DINO_POSITION_X = 0;
 const DINO_POSITION_Y = 129;
@@ -33,6 +34,7 @@ const dino = add([
 jump(floor_initialized, dino, start);
 
 cloud();
+cactus();
 
 // Init floor
 realFloor();

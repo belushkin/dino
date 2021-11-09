@@ -4,8 +4,8 @@ import floor from "./floor";
 const JUMP_FORCE = 800;
 
 export default function jump(floor_initialized, dino, start) {
-  keyPress("space", () => {
-    // Initialize floor on first space pressed
+
+  onKeyPressRepeat("space", () => {
     if (!floor_initialized) {
       floor();
       floor_initialized = true;
