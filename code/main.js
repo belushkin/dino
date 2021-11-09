@@ -2,6 +2,7 @@ import k from "./kaboom";
 
 import { realFloor } from "./src/floor";
 import jump from "./src/jump";
+import down from "./src/down";
 import cloud from "./src/cloud";
 import cactus from "./src/cactus";
 
@@ -30,11 +31,9 @@ const dino = add([
   sprite("dino"),
 ]);
 
-// jump when player presses "space" key
+// Load handlers
 jump(floor_initialized, dino, start);
-
+down(dino);
 cloud();
 cactus();
-
-// Init floor
 realFloor();
