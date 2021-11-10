@@ -14,7 +14,9 @@ export default function floor() {
   let interval = 120;
   FLOOR_FRAMES.forEach(function (el, index) {
     setTimeout(function () {
-      floor.push(add([pos(step, FLOOR_POSITION_Y), sprite("floor")]));
+      floor.push(
+        add([pos(step, FLOOR_POSITION_Y), layer("ui"), sprite("floor")])
+      );
       step += FLOOR_MOVEMENT_STEP;
     }, index * interval);
   });

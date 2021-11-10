@@ -13,13 +13,14 @@ loadSpriteAtlas("sprites/dino.png", "sprites/dino.json");
 
 gravity(2400);
 
-layers([
-    "ui",
-    "game",
-], "game")
+layers(["ui", "game"], "game");
 
 // Begin of the game character
-const start = add([pos(DINO_POSITION_X, DINO_POSITION_Y), sprite("start")]);
+const start = add([
+  pos(DINO_POSITION_X + 2, DINO_POSITION_Y),
+  sprite("start"),
+  layer("ui"),
+]);
 
 // Draw dino at the same time over start dino
 const dino = add([
@@ -28,6 +29,7 @@ const dino = add([
   body(),
   sprite("dino"),
 ]);
+dino.play("idle");
 
 // Load handlers
 key_handlers(dino, start);

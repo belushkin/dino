@@ -6,15 +6,6 @@ const JUMP_FORCE = 800;
 let floor_initialized = false;
 
 export default function key_handlers(dino, start) {
-
-  // const dino_down = add([
-  //   pos(30, 30), 
-  //   // move(LEFT, SPEED),
-  //   // layer("ui"),
-  //   sprite("down")
-  // ]);
-  // dino_down.play("run");
-
   // Space key pressed
   onKeyPressRepeat("space", () => {
     if (!floor_initialized) {
