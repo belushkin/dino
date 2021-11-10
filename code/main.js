@@ -28,6 +28,17 @@ const dino = add([
   sprite("dino"),
 ]);
 
+add([pos(30, 30), sprite("0")]);
+add([pos(55, 30), sprite("1")]);
+add([pos(80, 30), sprite("2")]);
+add([pos(105, 30), sprite("3")]);
+add([pos(130, 30), sprite("4")]);
+add([pos(155, 30), sprite("5")]);
+add([pos(180, 30), sprite("6")]);
+add([pos(205, 30), sprite("7")]);
+add([pos(230, 30), sprite("8")]);
+add([pos(255, 30), sprite("9")]);
+
 // Load handlers
 key_handlers(dino, start);
 cloud();
