@@ -1,15 +1,12 @@
 import k from "./kaboom";
 
 import { realFloor } from "./src/floor";
-import jump from "./src/jump";
-import down from "./src/down";
+import key_handlers from "./src/key_handlers";
 import cloud from "./src/cloud";
 import cactus from "./src/cactus";
 
 const DINO_POSITION_X = 0;
 const DINO_POSITION_Y = 129;
-
-let floor_initialized = false;
 
 loadSpriteAtlas("sprites/dino.png", "sprites/dino.json");
 
@@ -32,8 +29,7 @@ const dino = add([
 ]);
 
 // Load handlers
-jump(floor_initialized, dino, start);
-down(dino);
+key_handlers(dino, start);
 cloud();
 cactus();
 realFloor();
