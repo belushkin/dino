@@ -1,7 +1,8 @@
-import k from "../kaboom";
-import floor from "./floor";
+import {
+  DINO_JUMP_FORCE,
+} from "./../utils/constants";
 
-const JUMP_FORCE = 800;
+import floor from "./floor";
 
 let floor_initialized = false;
 
@@ -20,7 +21,7 @@ export default function key_handlers(dino, start) {
     }
 
     if (dino.grounded()) {
-      dino.jump(JUMP_FORCE);
+      dino.jump(DINO_JUMP_FORCE);
     }
   });
 

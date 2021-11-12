@@ -7,6 +7,7 @@ export const GAMEOVER_HEIGHT = 80;
 // Dino constants
 export const DINO_POSITION_X = 5;
 export const DINO_POSITION_Y = 189;
+export const DINO_JUMP_FORCE = 800;
 
 // Cactuses constants
 export const CACTUS_SPEED = 180;
@@ -33,3 +34,8 @@ export const FLOOR_MOVEMENT_STEP = 150;
 export const FLOOR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
 export const FLOOR_HEIGHT = 1;
 export const FLOOR_INTERVAL = 120;
+
+// Enemy constants
+export const ENEMY_SPEED = 180;
+export const ENEMY_HEIGHT_1 = 130;
+export const ENEMY_HEIGHT_2 = 90;

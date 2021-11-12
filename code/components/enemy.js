@@ -1,11 +1,13 @@
-import k from "./../kaboom";
-
-const SPEED = 180;
+import {
+  ENEMY_SPEED,
+  ENEMY_HEIGHT_1,
+  ENEMY_HEIGHT_2,
+} from "./../utils/constants";
 
 export default function enemy() {
   const en = add([
-    pos(width(), 120),
-    move(LEFT, SPEED),
+    pos(width(), Math.random() < 0.5 ? ENEMY_HEIGHT_1 : ENEMY_HEIGHT_2),
+    move(LEFT, ENEMY_SPEED),
     layer("ui"),
     sprite("enemy"),
   ]);
