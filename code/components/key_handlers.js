@@ -1,4 +1,4 @@
-import k from "./../kaboom";
+import k from "../kaboom";
 import floor from "./floor";
 
 const JUMP_FORCE = 800;

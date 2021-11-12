@@ -1,24 +1,23 @@
-import k from "./../kaboom";
-
-const FLOOR_POSITION_Y = 196;
-const FLOOR_MOVEMENT_STEP = 150;
-const FLOOR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
-
-const FLOOR_HEIGHT = 1;
+import {
+  FLOOR_POSITION_Y,
+  FLOOR_MOVEMENT_STEP,
+  FLOOR_FRAMES,
+  FLOOR_HEIGHT,
+  FLOOR_INTERVAL,
+} from "./../utils/constants";
 
 export default function floor() {
   const floor = [];
 
   // Explain this
   let step = 0;
-  let interval = 120;
   FLOOR_FRAMES.forEach(function (el, index) {
     setTimeout(function () {
       floor.push(
         add([pos(step, FLOOR_POSITION_Y), layer("ui"), sprite("floor")])
       );
       step += FLOOR_MOVEMENT_STEP;
-    }, index * interval);
+    }, index * FLOOR_INTERVAL);
   });
 
   // And this

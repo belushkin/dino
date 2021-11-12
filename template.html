@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <title>T-Rex Dinosaur Game - Chrome Dino Runner Online</title>
+    <meta
+      name="description"
+      content="T-Rex Dinosaur - a replica of the replica of the Dino game from Chrome written in KaboomJs framework. Press Space to start the game online and jump your Dino, use down arrow (↓) to duck."
+    />
+    <meta charset="utf-8" />
+    <style>
+      * {
+        margin: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+      }
+      .container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      @font-face {
+        font-family: "IBM PLex Mono";
+        src: url("/site/fonts/IBMPlexSans-Regular.ttf") format("truetype");
+      }
+      .info {
+        margin-top: 100px;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      .info > p {
+        display: inline-block;
+        width: 50%;
+        padding: 10px;
+      }
+      .game {
+        width: 50%;
+        margin: 0 auto;
+        height: 280px;
+        min-width: 1000px;
+      }
+    </style>
+  </head>
 
-<head>
-	<title>kaboom</title>
-	<meta charset="utf-8">
-	<style>
-		* {
-			margin: 0;
-		}
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-		}
-		canvas {
-			display: block;
-		}
-    .container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-    .info {
-      width: 550px;
-      height: 50px;
-      font-family: sinko;
-      position: absolute;
-      top: 100px;
-      left: 30%;
-      text-align: center;
-    }
-    .game {
-      position: absolute;
-      top: 250px;
-      left: 22%;
-    }
-	</style>
-</head>
-
-<body>
-  <!-- Explain this -->
-  <div class="container">
-    <div class="info">
-      <h1>T-Rex Chrome Dinosaur</h1>
-      <p>Google Dino Game!</p>
+  <body>
+    <!-- Explain this -->
+    <div class="container">
+      <div class="info">
+        <h1>T-Rex Chrome Dino Game</h1>
+        <p>
+          T-Rex Dinosaur - a replica of the replica of the hidden game from
+          Chrome offline mode written in KaboomJs framework. Press Space to
+          start the game online and jump your Dino, use down arrow (↓) to duck.
+        </p>
+      </div>
+      <div class="game"></div>
     </div>
-    <div class="game">
-    </div>
-  </div>
-  {{kaboom}}
-</body>
-
+    {{kaboom}}
+  </body>
 </html>

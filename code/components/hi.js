@@ -1,12 +1,12 @@
-import k from "./../kaboom";
-
-const TIME_INTERVALS = [0, 1, 2, 3, 4];
-const TIME_POSITION_OFFSET = 25;
-const TIME_Y_POSITION = 30;
-const TIME_X_POSITION = 355;
-const TIME_APPEAR_INTERVAL = 120;
-const TIME_COUNT_INTERVAL = 0.1;
-const SPACE_BETWEEN_SCORE_AND_TIME = 150;
+import {
+  TIME_INTERVALS,
+  TIME_POSITION_OFFSET,
+  TIME_Y_POSITION,
+  TIME_X_POSITION,
+  TIME_APPEAR_INTERVAL,
+  TIME_COUNT_INTERVAL,
+  SPACE_BETWEEN_SCORE_AND_TIME,
+} from "./../utils/constants";
 
 let times = [];
 let scores = [];
@@ -15,11 +15,7 @@ let score = 0;
 export default function hi() {
   let position = TIME_X_POSITION;
   TIME_INTERVALS.forEach(function (el, index) {
-    add([
-      pos(position - 50, TIME_Y_POSITION),
-      sprite("hi"),
-      "time",
-    ])
+    add([pos(position - 50, TIME_Y_POSITION), sprite("hi"), "time"]);
     setTimeout(function () {
       scores.push(add([pos(position, TIME_Y_POSITION), sprite("0"), "time"]));
       times.push(
