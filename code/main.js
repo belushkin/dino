@@ -4,6 +4,7 @@ import { realFloor } from "./src/floor";
 import key_handlers from "./src/key_handlers";
 import cloud from "./src/cloud";
 import cactus from "./src/cactus";
+import enemy from "./src/enemy";
 import hi from "./src/hi";
 
 const DINO_POSITION_X = 5;
@@ -22,6 +23,9 @@ const start = add([
   layer("ui"),
 ]);
 
+const gameover = add([pos(30, 80), sprite("gameover"), layer("ui")]);
+const icon = add([pos(150, 10), sprite("icon"), layer("ui")]);
+
 // Draw dino at the same time over start dino
 const dino = add([
   pos(DINO_POSITION_X, DINO_POSITION_Y),
@@ -35,5 +39,6 @@ dino.play("idle");
 key_handlers(dino, start);
 cloud();
 cactus();
+enemy();
 realFloor();
 hi();

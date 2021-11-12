@@ -174,5 +174,32 @@
     "y": 1,
     "width": 40,
     "height": 25
+  },
+  "gameover": {
+    "x": 952,
+    "y": 26,
+    "width": 381,
+    "height": 25
+  },
+  "enemy": {
+    "x": 260,
+    "y": 1,
+    "width": 184,
+    "height": 80,
+    "sliceX": 2,
+    "anims": {
+      "fly": {
+        "from": 0,
+        "to": 1,
+        "speed": 4,
+        "loop": true
+      }
+    }
+  },
+  "icon": {
+    "x": 2,
+    "y": 1,
+    "width": 74,
+    "height": 65
   }
 }
