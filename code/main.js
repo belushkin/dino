@@ -29,11 +29,11 @@ const start = add([
   layer("ui"),
 ]);
 
-// const gameover = add([
-//   pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
-//   sprite("gameover"),
-//   layer("ui"),
-// ]);
+const gameover = add([
+  pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
+  sprite("gameover"),
+  layer("ui"),
+]);
 // const icon = add([
 //   pos(width() / 2 - HALF_ICON_WIDTH, ICON_HEIGHT),
 //   sprite("icon"),

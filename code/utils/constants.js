@@ -8,7 +8,7 @@ if (BIG_OR_SMALL === 0) {
 }
 
 // Game over text and icon constants
-export const HALF_GAMEOVER_WIDTH = 190;
+export const HALF_GAMEOVER_WIDTH = c.HALF_GAMEOVER_WIDTH;
 export const HALF_ICON_WIDTH = 37;
 export const ICON_HEIGHT = 130;
 export const GAMEOVER_HEIGHT = 80;
@@ -45,7 +45,7 @@ export const FLOOR_MOVEMENT_STEP = 150;
 export const FLOOR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
 export const FLOOR_HEIGHT = 1;
 export const FLOOR_INTERVAL = 120;
-export const FLOOR_NUMBER_FRAMES = 120;
+export const FLOOR_NUMBER_FRAMES = c.FLOOR_NUMBER_FRAMES;
 
 // Enemy constants
 export const ENEMY_SPEED = 180;

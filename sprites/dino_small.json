@@ -177,10 +177,10 @@
     "height": 25
   },
   "gameover": {
-    "x": 952,
-    "y": 26,
-    "width": 381,
-    "height": 25
+    "x": 482,
+    "y": 15,
+    "width": 193,
+    "height": 10
   },
   "enemy": {
     "x": 260,
