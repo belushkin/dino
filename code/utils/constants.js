@@ -41,10 +41,10 @@ export const SPACE_BETWEEN_SCORE_AND_TIME = 150;
 // Floor constants
 export const FLOOR_POSITION_Y = c.FLOOR_POSITION_Y;
 export const REAL_FLOOR_POSITION_Y = c.REAL_FLOOR_POSITION_Y;
-export const FLOOR_MOVEMENT_STEP = 150;
-export const FLOOR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
-export const FLOOR_HEIGHT = 1;
-export const FLOOR_INTERVAL = 120;
+export const FLOOR_MOVEMENT_STEP = c.FLOOR_MOVEMENT_STEP;
+export const FLOOR_FRAMES = c.FLOOR_FRAMES;
+export const FLOOR_HEIGHT = c.FLOOR_HEIGHT;
+export const FLOOR_INTERVAL = c.FLOOR_INTERVAL;
 export const FLOOR_NUMBER_FRAMES = c.FLOOR_NUMBER_FRAMES;
 
 // Enemy constants

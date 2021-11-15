@@ -32,12 +32,12 @@ const start = add([
 const gameover = add([
   pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
   sprite("gameover"),
-  layer("ui"),
+  layer("game"),
 ]);
 const icon = add([
   pos(width() / 2 - HALF_ICON_WIDTH, ICON_HEIGHT),
   sprite("icon"),
-  layer("ui"),
+  layer("game"),
 ]);
 
 // Draw dino at the same time over start dino
@@ -52,7 +52,7 @@ dino.play("idle");
 // // Load handlers
 key_handlers(dino, start);
 // cloud();
-cactus();
+// cactus();
 // enemy();
 realFloor();
 // hi();

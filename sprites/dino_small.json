@@ -49,17 +49,17 @@
   },
   "start": {
     "x": 38,
-    "y": 3,
+    "y": 2,
     "width": 46,
-    "height": 45,
+    "height": 46,
     "sliceX": 1
   },
   "floor": {
     "x": 4,
     "y": 55,
-    "width": 3000,
+    "width": 1510,
     "height": 30,
-    "sliceX": 20
+    "sliceX": 9
   },
   "cloud": {
     "x": 164,

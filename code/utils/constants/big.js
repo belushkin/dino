@@ -6,6 +6,10 @@ export const DINO_POSITION_Y = 189;
 export const FLOOR_POSITION_Y = 256;
 export const REAL_FLOOR_POSITION_Y = FLOOR_POSITION_Y;
 export const FLOOR_NUMBER_FRAMES = 15;
+export const FLOOR_MOVEMENT_STEP = 150;
+export const FLOOR_FRAMES = [0, 1, 2, 3, 4, 5, 6];
+export const FLOOR_HEIGHT = 1;
+export const FLOOR_INTERVAL = 120;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 190;
