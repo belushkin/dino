@@ -1,7 +1,7 @@
 import kaboom from "kaboom";
 
 export const k = kaboom({
-  background: [255, 255, 255],
+  background: [0, 0, 0],
   root: document.querySelector("body > div > div.game"),
 });
 

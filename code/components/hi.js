@@ -35,14 +35,18 @@ export default function hi() {
     let str = absnum.toString();
     // Draw timer
     for (let i = 0; i < str.length; i++) {
-      times[TIME_INTERVALS.length - str.length + i] &&
+      if (times[TIME_INTERVALS.length - str.length + i]) {
+        times[TIME_INTERVALS.length - str.length + i].unuse('time');
         times[TIME_INTERVALS.length - str.length + i].use(sprite(str[i]));
+      }
 
       if (absnum == 100) {
         // Draw scores
         for (let j = 0; j < str.length; j++) {
-          scores[TIME_INTERVALS.length - str.length + j] &&
+          if (scores[TIME_INTERVALS.length - str.length + j]) {
+            scores[TIME_INTERVALS.length - str.length + j].unuse('time');
             scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
+          }
         }
       }
     }
