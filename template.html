@@ -40,8 +40,14 @@
         width: 50%;
         padding: 10px;
       }
-      .game {
-        width: 50%;
+      .ldpi_game {
+        width: 600px;
+        margin: 0 auto;
+        height: 150px;
+        min-width: 150px;
+      }
+      .hdpi_game {
+        width: "50%";
         margin: 0 auto;
         height: 280px;
         min-width: 1000px;
@@ -60,8 +66,15 @@
           start the game online and jump your Dino, use down arrow (↓) to duck.
         </p>
       </div>
-      <div class="game"></div>
+      <div id="game_canvas" class="ldpi_game"></div>
     </div>
     {{kaboom}}
   </body>
+
+  <script type="text/javascript">
+    var IS_HIDPI = window.devicePixelRatio > 1;
+    if (IS_HIDPI) {
+      document.getElementById("game_canvas").className = "hdpi_game";
+    }
+  </script>
 </html>

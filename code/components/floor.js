@@ -1,5 +1,6 @@
 import {
   FLOOR_POSITION_Y,
+  REAL_FLOOR_POSITION_Y,
   FLOOR_MOVEMENT_STEP,
   FLOOR_FRAMES,
   FLOOR_HEIGHT,
@@ -9,12 +10,11 @@ import {
 export default function floor() {
   const floor = [];
 
-  // Explain this
   let step = 0;
   FLOOR_FRAMES.forEach(function (el, index) {
     setTimeout(function () {
       floor.push(
-        add([pos(step, FLOOR_POSITION_Y), layer("ui"), sprite("floor"), "floor"])
+        add([pos(step, REAL_FLOOR_POSITION_Y), layer("ui"), sprite("floor"), "floor"])
       );
       step += FLOOR_MOVEMENT_STEP;
     }, index * FLOOR_INTERVAL);
@@ -26,7 +26,7 @@ export default function floor() {
     loop(0.2, () => {
       for (let j = 0; j < floor.length; j++) {
         floor[j].unuse('floor');
-        floor[j].frame = (j + i) % 15;
+        floor[j].frame = (j + i) % 8;
       }
       i++;
     });
@@ -37,10 +37,10 @@ export default function floor() {
 export function realFloor() {
   add([
     rect(width(), FLOOR_HEIGHT),
-    pos(0, height()),
+    pos(0, FLOOR_POSITION_Y),
     origin("botleft"),
     area(),
     solid(),
-    color(127, 200, 255),
+    color(0, 0, 0),
   ]);
 }

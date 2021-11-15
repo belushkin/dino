@@ -10,6 +10,7 @@ import {
   HALF_GAMEOVER_WIDTH,
   DINO_POSITION_X,
   DINO_POSITION_Y,
+  DINO_START_POSITION_X,
   HALF_ICON_WIDTH,
   ICON_HEIGHT,
   GAMEOVER_HEIGHT,
@@ -22,11 +23,11 @@ gravity(2400);
 layers(["ui", "game"], "game");
 
 // Begin of the game character
-// const start = add([
-//   pos(DINO_POSITION_X + 2, DINO_POSITION_Y),
-//   sprite("start"),
-//   layer("ui"),
-// ]);
+const start = add([
+  pos(DINO_START_POSITION_X, DINO_POSITION_Y),
+  sprite("start"),
+  layer("ui"),
+]);
 
 // const gameover = add([
 //   pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
@@ -41,7 +42,7 @@ layers(["ui", "game"], "game");
 
 // Draw dino at the same time over start dino
 const dino = add([
-  pos(30, 30),
+  pos(DINO_POSITION_X, DINO_POSITION_Y),
   area(),
   body(),
   sprite("dino"),
@@ -49,7 +50,7 @@ const dino = add([
 dino.play("idle");
 
 // // Load handlers
-// key_handlers(dino, start);
+key_handlers(dino, start);
 // cloud();
 // cactus();
 // enemy();
