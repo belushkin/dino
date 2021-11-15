@@ -9,3 +9,11 @@ export const FLOOR_NUMBER_FRAMES = 15;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 190;
+export const HALF_ICON_WIDTH = 37;
+export const ICON_HEIGHT = 130;
+export const GAMEOVER_HEIGHT = 80;
+
+// Cactuses constants
+export const CACTUS_SPEED = 180;
+export const SMALL_CACTUS_POSITION = 200;
+export const BIG_CACTUS_POSITION = 175;

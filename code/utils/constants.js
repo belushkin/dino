@@ -9,9 +9,9 @@ if (BIG_OR_SMALL === 0) {
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = c.HALF_GAMEOVER_WIDTH;
-export const HALF_ICON_WIDTH = 37;
-export const ICON_HEIGHT = 130;
-export const GAMEOVER_HEIGHT = 80;
+export const HALF_ICON_WIDTH = c.HALF_ICON_WIDTH;
+export const ICON_HEIGHT = c.ICON_HEIGHT;
+export const GAMEOVER_HEIGHT = c.GAMEOVER_HEIGHT;
 
 // Dino constants
 export const DINO_POSITION_X = 0;
@@ -20,9 +20,9 @@ export const DINO_POSITION_Y = c.DINO_POSITION_Y;
 export const DINO_JUMP_FORCE = 800;
 
 // Cactuses constants
-export const CACTUS_SPEED = 180;
-export const SMALL_CACTUS_POSITION = 200;
-export const BIG_CACTUS_POSITION = 175;
+export const CACTUS_SPEED = c.CACTUS_SPEED;
+export const SMALL_CACTUS_POSITION = c.SMALL_CACTUS_POSITION;
+export const BIG_CACTUS_POSITION = c.BIG_CACTUS_POSITION;
 
 // Clouds constants
 export const CLOUD_SPEED = 180;

@@ -46,6 +46,6 @@ export function realFloor() {
     origin("botleft"),
     area(),
     solid(),
-    color(0, 0, 0),
+    // color(0, 0, 0),
   ]);
 }
