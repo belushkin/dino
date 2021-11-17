@@ -4,7 +4,7 @@ import {
   TIME_Y_POSITION,
   TIME_X_POSITION,
   TIME_APPEAR_INTERVAL,
-  TIME_COUNT_INTERVAL,
+  TIME_HI_INTERVAL,
   SPACE_BETWEEN_SCORE_AND_TIME,
 } from "./../utils/constants";
 
@@ -19,7 +19,11 @@ export default function hi() {
   // Draw numbers with timeout
   let position = TIME_X_POSITION;
   TIME_INTERVALS.forEach(function (el, index) {
-    add([pos(position - 50, TIME_Y_POSITION), sprite("hi"), "time"]);
+    add([
+      pos(position - TIME_HI_INTERVAL, TIME_Y_POSITION),
+      sprite("hi"),
+      "time",
+    ]);
     setTimeout(function () {
       scores.push(add([pos(position, TIME_Y_POSITION), sprite("0"), "time"]));
       times.push(

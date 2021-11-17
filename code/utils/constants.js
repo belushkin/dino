@@ -25,9 +25,9 @@ export const SMALL_CACTUS_POSITION = c.SMALL_CACTUS_POSITION;
 export const BIG_CACTUS_POSITION = c.BIG_CACTUS_POSITION;
 
 // Clouds constants
-export const CLOUD_SPEED = 180;
-export const CLOUD_HEIGHT_1 = 110;
-export const CLOUD_HEIGHT_2 = 70;
+export const CLOUD_SPEED = c.CLOUD_SPEED;
+export const CLOUD_HEIGHT_1 = c.CLOUD_HEIGHT_1;
+export const CLOUD_HEIGHT_2 = c.CLOUD_HEIGHT_2;
 
 // Times constants
 export const TIME_INTERVALS = c.TIME_INTERVALS;
@@ -35,19 +35,20 @@ export const TIME_POSITION_OFFSET = c.TIME_POSITION_OFFSET;
 export const TIME_Y_POSITION = c.TIME_Y_POSITION;
 export const TIME_X_POSITION = c.TIME_X_POSITION;
 export const TIME_APPEAR_INTERVAL = c.TIME_APPEAR_INTERVAL;
-export const TIME_COUNT_INTERVAL = c.TIME_COUNT_INTERVAL;
+export const TIME_HI_INTERVAL = c.TIME_HI_INTERVAL;
 export const SPACE_BETWEEN_SCORE_AND_TIME = c.SPACE_BETWEEN_SCORE_AND_TIME;
 
 // Floor constants
-export const FLOOR_POSITION_Y = c.FLOOR_POSITION_Y;
 export const REAL_FLOOR_POSITION_Y = c.REAL_FLOOR_POSITION_Y;
-export const FLOOR_MOVEMENT_STEP = c.FLOOR_MOVEMENT_STEP;
+export const START_FLOOR_SPEED = c.START_FLOOR_SPEED;
+export const FLOOR_POSITION_Y = c.FLOOR_POSITION_Y;
+export const FLOOR_START_FLOOR_DISAPEAR_X = c.FLOOR_START_FLOOR_DISAPEAR_X;
 export const FLOOR_WIDTH = c.FLOOR_WIDTH;
 export const FLOOR_HEIGHT = c.FLOOR_HEIGHT;
 export const FLOOR_SPEED = c.FLOOR_SPEED;
-export const FLOOR_NUMBER_FRAMES = c.FLOOR_NUMBER_FRAMES;
+export const FLOOR_WIDTH_SCREEN = c.FLOOR_WIDTH_SCREEN;
 
 // Enemy constants
-export const ENEMY_SPEED = 180;
-export const ENEMY_HEIGHT_1 = 130;
-export const ENEMY_HEIGHT_2 = 90;
+export const ENEMY_SPEED = c.ENEMY_SPEED;
+export const ENEMY_HEIGHT_1 = c.ENEMY_HEIGHT_1;
+export const ENEMY_HEIGHT_2 = c.ENEMY_HEIGHT_2;

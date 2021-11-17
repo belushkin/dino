@@ -1,11 +1,12 @@
 import {
   FLOOR_POSITION_Y,
   REAL_FLOOR_POSITION_Y,
-  FLOOR_MOVEMENT_STEP,
+  FLOOR_START_FLOOR_DISAPEAR_X,
   FLOOR_WIDTH,
   FLOOR_HEIGHT,
   FLOOR_SPEED,
-  FLOOR_NUMBER_FRAMES,
+  START_FLOOR_SPEED,
+  FLOOR_WIDTH_SCREEN,
 } from "./../utils/constants";
 
 export default function run() {
@@ -16,7 +17,7 @@ export default function run() {
       layer("ui"),
       origin("topright"),
       sprite("floor", { flipX: true }),
-      { speed: 300 },
+      { speed: START_FLOOR_SPEED },
     ]);
   };
 
@@ -26,7 +27,7 @@ export default function run() {
       "finish",
       layer("ui"),
       sprite("floor"),
-      { speed: -300 },
+      { speed: FLOOR_SPEED },
     ]);
   };
 
@@ -34,7 +35,7 @@ export default function run() {
 
   onUpdate("start", (f) => {
     f.move(f.speed, 0);
-    if (f.pos.x > 600) {
+    if (f.pos.x > FLOOR_WIDTH_SCREEN) {
       spawnFinishFloor(0);
       destroy(f);
     }
@@ -43,11 +44,11 @@ export default function run() {
   let spawned = false;
   onUpdate("finish", (f) => {
     f.move(f.speed, 0);
-    if (f.pos.x < -590 && !spawned) {
+    if (f.pos.x < FLOOR_START_FLOOR_DISAPEAR_X && !spawned) {
       spawnFinishFloor(width());
       spawned = true;
     }
-    if (f.pos.x < -1150) {
+    if (f.pos.x < FLOOR_WIDTH) {
       destroy(f);
       spawned = false;
     }

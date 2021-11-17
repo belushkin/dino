@@ -51,8 +51,8 @@ dino.play("idle");
 
 // // Load handlers
 key_handlers(dino, start);
-// cloud();
-// cactus();
-// enemy();
+cloud();
+cactus();
+enemy();
 deck();
 hi();

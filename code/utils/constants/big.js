@@ -5,11 +5,12 @@ export const DINO_POSITION_Y = 189;
 // floor
 export const FLOOR_POSITION_Y = 256;
 export const REAL_FLOOR_POSITION_Y = FLOOR_POSITION_Y;
-export const FLOOR_NUMBER_FRAMES = 15;
-export const FLOOR_MOVEMENT_STEP = 9.55
-export const FLOOR_WIDTH = -1510;
+export const FLOOR_START_FLOOR_DISAPEAR_X = -590;
+export const FLOOR_WIDTH = -1150;
 export const FLOOR_HEIGHT = 1;
 export const FLOOR_SPEED = 120;
+export const START_FLOOR_SPEED = 400;
+export const FLOOR_WIDTH_SCREEN = 600;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 190;
@@ -28,5 +29,15 @@ export const TIME_POSITION_OFFSET = 25;
 export const TIME_Y_POSITION = 20;
 export const TIME_X_POSITION = width() - 300;
 export const TIME_APPEAR_INTERVAL = 120;
-export const TIME_COUNT_INTERVAL = 4;
+export const TIME_HI_INTERVAL = 40;
 export const SPACE_BETWEEN_SCORE_AND_TIME = 150;
+
+// Clouds constants
+export const CLOUD_SPEED = 180;
+export const CLOUD_HEIGHT_1 = 110;
+export const CLOUD_HEIGHT_2 = 70;
+
+// Enemy constants
+export const ENEMY_SPEED = 180;
+export const ENEMY_HEIGHT_1 = 130;
+export const ENEMY_HEIGHT_2 = 90;

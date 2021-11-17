@@ -1,18 +1,15 @@
-import {
-  DINO_JUMP_FORCE,
-} from "./../utils/constants";
+import { DINO_JUMP_FORCE } from "./../utils/constants";
 
 import run from "./floor";
 
-let floor_initialized = false;
+let ground = false;
 
 export default function key_handlers(dino, start) {
-  run();
   // Space key pressed
   onKeyPressRepeat("space", () => {
-    if (!floor_initialized) {
-      // run();
-      floor_initialized = true;
+    if (!ground) {
+      run();
+      ground = true;
     }
 
     dino.play("idle");
@@ -28,23 +25,23 @@ export default function key_handlers(dino, start) {
 
   // Ground
   dino.on("ground", () => {
-    if (floor_initialized) {
+    if (ground) {
       dino.play("run");
     }
   });
-  
+
   // Down pressed
   onKeyPress("down", () => {
-    if (floor_initialized) {
-      dino.use(sprite('down'));
+    if (ground) {
+      dino.use(sprite("down"));
       dino.play("run");
     }
   });
 
   // Down released
   onKeyRelease("down", () => {
-    if (floor_initialized) {
-      dino.use(sprite('dino'));
+    if (ground) {
+      dino.use(sprite("dino"));
     }
   });
 }
