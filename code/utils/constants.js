@@ -1,7 +1,5 @@
-export const BIG_OR_SMALL = 0;
-
 let c;
-if (BIG_OR_SMALL === 0) {
+if (IS_HIDPI === false) {
   c = require("./constants/small");
 } else {
   c = require("./constants/big");

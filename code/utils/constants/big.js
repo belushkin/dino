@@ -3,14 +3,14 @@ export const DINO_START_POSITION_X = 2;
 export const DINO_POSITION_Y = 189;
 
 // floor
-export const FLOOR_POSITION_Y = 256;
-export const REAL_FLOOR_POSITION_Y = FLOOR_POSITION_Y;
-export const FLOOR_START_FLOOR_DISAPEAR_X = -590;
-export const FLOOR_WIDTH = -1150;
+export const FLOOR_POSITION_Y = 279;
+export const REAL_FLOOR_POSITION_Y = FLOOR_POSITION_Y-23;
+export const FLOOR_START_FLOOR_DISAPEAR_X = -1190;
+export const FLOOR_WIDTH = -2400;
 export const FLOOR_HEIGHT = 1;
-export const FLOOR_SPEED = 120;
-export const START_FLOOR_SPEED = 400;
-export const FLOOR_WIDTH_SCREEN = 600;
+export const FLOOR_SPEED = -220;
+export const START_FLOOR_SPEED = 800;
+export const FLOOR_WIDTH_SCREEN = 1200;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 190;

@@ -16,7 +16,11 @@ import {
   GAMEOVER_HEIGHT,
 } from "./utils/constants";
 
-loadSpriteAtlas("sprites/dino_small.png", "sprites/dino_small.json");
+if (IS_HIDPI == true) {
+  loadSpriteAtlas("sprites/dino_big.png", "sprites/dino_big.json");
+} else {
+  loadSpriteAtlas("sprites/dino_small.png", "sprites/dino_small.json");
+}
 
 gravity(2400);
 
