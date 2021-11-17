@@ -2,15 +2,16 @@ import {
   DINO_JUMP_FORCE,
 } from "./../utils/constants";
 
-import floor from "./floor";
+import run from "./floor";
 
 let floor_initialized = false;
 
 export default function key_handlers(dino, start) {
+  run();
   // Space key pressed
   onKeyPressRepeat("space", () => {
     if (!floor_initialized) {
-      floor();
+      // run();
       floor_initialized = true;
     }
 

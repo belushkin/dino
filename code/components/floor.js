@@ -2,48 +2,62 @@ import {
   FLOOR_POSITION_Y,
   REAL_FLOOR_POSITION_Y,
   FLOOR_MOVEMENT_STEP,
-  FLOOR_FRAMES,
+  FLOOR_WIDTH,
   FLOOR_HEIGHT,
-  FLOOR_INTERVAL,
+  FLOOR_SPEED,
   FLOOR_NUMBER_FRAMES,
 } from "./../utils/constants";
 
-export default function floor() {
-  const floor = [];
+export default function run() {
+  const spawnStartFloor = () => {
+    return add([
+      pos(0, REAL_FLOOR_POSITION_Y),
+      "start",
+      layer("ui"),
+      origin("topright"),
+      sprite("floor", { flipX: true }),
+      { speed: 300 },
+    ]);
+  };
 
-  let step = 0;
-  FLOOR_FRAMES.forEach(function (el, index) {
-    setTimeout(function () {
-      floor.push(
-        add([
-          pos(step, REAL_FLOOR_POSITION_Y),
-          layer("ui"),
-          sprite("floor"),
-          "floor",
-        ])
-      );
-      step += FLOOR_MOVEMENT_STEP;
-    }, index * FLOOR_INTERVAL);
+  const spawnFinishFloor = (x) => {
+    return add([
+      pos(x, REAL_FLOOR_POSITION_Y),
+      "finish",
+      layer("ui"),
+      sprite("floor"),
+      { speed: -300 },
+    ]);
+  };
+
+  spawnStartFloor();
+
+  onUpdate("start", (f) => {
+    f.move(f.speed, 0);
+    if (f.pos.x > 600) {
+      spawnFinishFloor(0);
+      destroy(f);
+    }
   });
 
-  setTimeout(function () {
-    let i = 0;
-    loop(0.2, () => {
-      for (let j = 0; j < floor.length; j++) {
-        floor[j].unuse("floor");
-        floor[j].frame = (j + i) % FLOOR_NUMBER_FRAMES;
-      }
-      i++;
-    });
-  }, 600); // 120 * 5
+  let spawned = false;
+  onUpdate("finish", (f) => {
+    f.move(f.speed, 0);
+    if (f.pos.x < -590 && !spawned) {
+      spawnFinishFloor(width());
+      spawned = true;
+    }
+    if (f.pos.x < -1150) {
+      destroy(f);
+      spawned = false;
+    }
+  });
 }
 
-// And this
-export function realFloor() {
+export function deck() {
   add([
     rect(width(), FLOOR_HEIGHT),
     pos(0, FLOOR_POSITION_Y),
-    origin("botleft"),
     area(),
     solid(),
     // color(255, 255, 255),

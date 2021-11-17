@@ -51,130 +51,121 @@
     "x": 38,
     "y": 2,
     "width": 46,
-    "height": 46,
-    "sliceX": 1
+    "height": 47
   },
   "floor": {
     "x": 4,
     "y": 55,
     "width": 1510,
-    "height": 30,
-    "sliceX": 9
+    "height": 30
   },
   "cloud": {
     "x": 164,
     "y": 1,
     "width": 100,
-    "height": 30,
-    "sliceX": 1
+    "height": 30
   },
   "0cactus1": {
     "x": 226,
     "y": 1,
     "width": 19,
-    "height": 37,
-    "sliceX": 1
+    "height": 37
   },
   "0cactus2": {
     "x": 245,
     "y": 1,
     "width": 34,
-    "height": 37,
-    "sliceX": 1
+    "height": 37
   },
   "0cactus3": {
     "x": 279,
     "y": 1,
     "width": 53,
-    "height": 37,
-    "sliceX": 1
+    "height": 37
   },
   "1cactus1": {
     "x": 332,
     "y": 1,
     "width": 25,
-    "height": 51,
-    "sliceX": 1
+    "height": 51
   },
   "1cactus2": {
     "x": 357,
     "y": 1,
     "width": 50,
-    "height": 51,
-    "sliceX": 1
+    "height": 51
   },
   "1cactus3": {
     "x": 407,
     "y": 1,
     "width": 75,
-    "height": 51,
-    "sliceX": 1
+    "height": 51
   },
   "0": {
-    "x": 950,
+    "x": 480,
     "y": 1,
-    "width": 25,
-    "height": 25
+    "width": 15,
+    "height": 13
   },
   "1": {
-    "x": 975,
+    "x": 495,
     "y": 1,
-    "width": 19,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "2": {
-    "x": 994,
+    "x": 504,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "3": {
-    "x": 1014,
+    "x": 513,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "4": {
-    "x": 1034,
+    "x": 522,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "5": {
-    "x": 1054,
+    "x": 531,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "6": {
-    "x": 1074,
+    "x": 540,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "7": {
-    "x": 1094,
+    "x": 549,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "8": {
-    "x": 1114,
+    "x": 558,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "9": {
-    "x": 1134,
+    "x": 567,
     "y": 1,
-    "width": 20,
-    "height": 25
+    "width": 9,
+    "height": 13
   },
   "hi": {
-    "x": 1154,
+    "x": 583,
     "y": 1,
-    "width": 40,
-    "height": 25
+    "width": 21,
+    "height": 13
   },
   "gameover": {
     "x": 482,

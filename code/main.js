@@ -1,6 +1,6 @@
 import k from "./kaboom";
 
-import { realFloor } from "./components/floor";
+import { deck } from "./components/floor";
 import key_handlers from "./components/key_handlers";
 import cloud from "./components/cloud";
 import cactus from "./components/cactus";
@@ -54,5 +54,5 @@ key_handlers(dino, start);
 // cloud();
 // cactus();
 // enemy();
-realFloor();
-// hi();
+deck();
+hi();

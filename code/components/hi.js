@@ -13,6 +13,10 @@ let scores = [];
 let score = 0;
 
 export default function hi() {
+  // Adding timer
+  const timer = add([{ time: 0, times, scores }]);
+
+  // Draw numbers with timeout
   let position = TIME_X_POSITION;
   TIME_INTERVALS.forEach(function (el, index) {
     add([pos(position - 50, TIME_Y_POSITION), sprite("hi"), "time"]);
@@ -29,27 +33,40 @@ export default function hi() {
     }, (index + 1) * TIME_APPEAR_INTERVAL);
   });
 
-  // counting
-  let absnum = 0;
-  loop(TIME_COUNT_INTERVAL, () => {
-    let str = absnum.toString();
+  // Update timer
+  timer.onUpdate(() => {
+    timer.time += dt();
+    let str = timer.time.toFixed(1).toString().split(".").join("");
     // Draw timer
     for (let i = 0; i < str.length; i++) {
       if (times[TIME_INTERVALS.length - str.length + i]) {
-        times[TIME_INTERVALS.length - str.length + i].unuse('time');
+        times[TIME_INTERVALS.length - str.length + i].unuse("time");
         times[TIME_INTERVALS.length - str.length + i].use(sprite(str[i]));
       }
-
-      if (absnum == 100) {
-        // Draw scores
-        for (let j = 0; j < str.length; j++) {
-          if (scores[TIME_INTERVALS.length - str.length + j]) {
-            scores[TIME_INTERVALS.length - str.length + j].unuse('time');
-            scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
-          }
-        }
-      }
     }
-    absnum++;
   });
+
+  // counting
+  // let absnum = 0;
+  // loop(TIME_COUNT_INTERVAL, () => {
+  //   let str = absnum.toString();
+  // // Draw timer
+  // for (let i = 0; i < str.length; i++) {
+  //   if (times[TIME_INTERVALS.length - str.length + i]) {
+  //     times[TIME_INTERVALS.length - str.length + i].unuse('time');
+  //     times[TIME_INTERVALS.length - str.length + i].use(sprite(str[i]));
+  //   }
+
+  //     if (absnum == 100) {
+  //       // Draw scores
+  //       for (let j = 0; j < str.length; j++) {
+  //         if (scores[TIME_INTERVALS.length - str.length + j]) {
+  //           scores[TIME_INTERVALS.length - str.length + j].unuse('time');
+  //           scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
+  //         }
+  //       }
+  //     }
+  //   }
+  //   absnum++;
+  // });
 }
