@@ -11,6 +11,7 @@ export const FLOOR_HEIGHT = 1;
 export const FLOOR_SPEED = -220;
 export const START_FLOOR_SPEED = 800;
 export const FLOOR_WIDTH_SCREEN = 1200;
+export const START_FLOOR_POSITION_X = 43;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 190;

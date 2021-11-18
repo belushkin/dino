@@ -26,23 +26,16 @@ gravity(2400);
 
 layers(["ui", "game"], "game");
 
-// Begin of the game character
-const start = add([
-  pos(DINO_START_POSITION_X, DINO_POSITION_Y),
-  sprite("start"),
-  layer("ui"),
-]);
-
-const gameover = add([
-  pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
-  sprite("gameover"),
-  layer("game"),
-]);
-const icon = add([
-  pos(width() / 2 - HALF_ICON_WIDTH, ICON_HEIGHT),
-  sprite("icon"),
-  layer("game"),
-]);
+// const gameover = add([
+//   pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
+//   sprite("gameover"),
+//   layer("game"),
+// ]);
+// const icon = add([
+//   pos(width() / 2 - HALF_ICON_WIDTH, ICON_HEIGHT),
+//   sprite("icon"),
+//   layer("game"),
+// ]);
 
 // Draw dino at the same time over start dino
 const dino = add([
@@ -54,9 +47,10 @@ const dino = add([
 dino.play("idle");
 
 // // Load handlers
-key_handlers(dino, start);
-cloud();
-cactus();
-enemy();
+key_handlers(dino);
 deck();
-hi();
+
+// cloud();
+// cactus();
+// enemy();
+// hi();

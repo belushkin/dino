@@ -6,21 +6,22 @@ import {
   FLOOR_HEIGHT,
   FLOOR_SPEED,
   START_FLOOR_SPEED,
+  START_FLOOR_POSITION_X,
   FLOOR_WIDTH_SCREEN,
 } from "./../utils/constants";
 
-export default function run() {
-  const spawnStartFloor = () => {
-    return add([
-      pos(0, REAL_FLOOR_POSITION_Y),
-      "start",
-      layer("ui"),
-      origin("topright"),
-      sprite("floor", { flipX: true }),
-      { speed: START_FLOOR_SPEED },
-    ]);
-  };
+export const spawnStartFloor = () => {
+  return add([
+    pos(START_FLOOR_POSITION_X, REAL_FLOOR_POSITION_Y),
+    "start",
+    layer("ui"),
+    origin("topright"),
+    sprite("floor", { flipX: true }),
+    { speed: START_FLOOR_SPEED },
+  ]);
+};
 
+export default function run() {
   const spawnFinishFloor = (x) => {
     return add([
       pos(x, REAL_FLOOR_POSITION_Y),
@@ -31,7 +32,7 @@ export default function run() {
     ]);
   };
 
-  spawnStartFloor();
+  // spawnStartFloor();
 
   onUpdate("start", (f) => {
     f.move(f.speed, 0);

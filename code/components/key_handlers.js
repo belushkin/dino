@@ -1,23 +1,22 @@
-import { DINO_JUMP_FORCE } from "./../utils/constants";
+import {
+  DINO_JUMP_FORCE,
+  INITIAL_MOVEMENT_DINO_SPEED,
+} from "./../utils/constants";
 
-import run from "./floor";
+import run, { spawnStartFloor } from "./floor";
 
 let ground = false;
+let begin = true;
 
-export default function key_handlers(dino, start) {
+export default function key_handlers(dino) {
+  spawnStartFloor();
+
   // Space key pressed
   onKeyPressRepeat("space", () => {
     if (!ground) {
-      run();
       ground = true;
     }
-
     dino.play("idle");
-
-    if (start.exists()) {
-      destroy(start);
-    }
-
     if (dino.grounded()) {
       dino.jump(DINO_JUMP_FORCE);
     }
@@ -27,6 +26,15 @@ export default function key_handlers(dino, start) {
   dino.on("ground", () => {
     if (ground) {
       dino.play("run");
+    }
+    if (ground && begin) {
+      run();
+      begin = false;
+
+      dino.use(move(RIGHT, INITIAL_MOVEMENT_DINO_SPEED));
+      wait(1, () => {
+        dino.unuse("move");
+      });
     }
   });
 

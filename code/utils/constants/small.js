@@ -5,12 +5,14 @@ export const DINO_POSITION_Y = 99;
 // floor
 export const FLOOR_POSITION_Y = 148;
 export const REAL_FLOOR_POSITION_Y = FLOOR_POSITION_Y-13;
+export const INITIAL_MOVEMENT_DINO_SPEED = 25;
 export const FLOOR_START_FLOOR_DISAPEAR_X = -590;
 export const FLOOR_WIDTH = -1150;
 export const FLOOR_HEIGHT = 1;
-export const FLOOR_SPEED = -120;
+export const FLOOR_SPEED = -320;
 export const START_FLOOR_SPEED = 600;
 export const FLOOR_WIDTH_SCREEN = 600;
+export const START_FLOOR_POSITION_X = 43;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 116;
