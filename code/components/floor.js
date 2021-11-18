@@ -32,8 +32,6 @@ export default function run() {
     ]);
   };
 
-  // spawnStartFloor();
-
   onUpdate("start", (f) => {
     f.move(f.speed, 0);
     if (f.pos.x > FLOOR_WIDTH_SCREEN) {
@@ -43,7 +41,11 @@ export default function run() {
   });
 
   let spawned = false;
+  let paused = false;
   onUpdate("finish", (f) => {
+    // Do nothing if paused
+    if (paused) return;
+
     f.move(f.speed, 0);
     if (f.pos.x < FLOOR_START_FLOOR_DISAPEAR_X && !spawned) {
       spawnFinishFloor(width());
@@ -53,6 +55,12 @@ export default function run() {
       destroy(f);
       spawned = false;
     }
+  });
+
+  onCollide("dino", "cactus", (d, c) => {
+    d.paused = true;
+    paused = true;
+    pauseGame = true;
   });
 }
 

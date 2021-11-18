@@ -1,11 +1,10 @@
 import k from "./kaboom";
 
 import { deck } from "./components/floor";
-import key_handlers from "./components/key_handlers";
+import handlers from "./components/handlers";
 import cloud from "./components/cloud";
-import cactus from "./components/cactus";
+// import cactus from "./components/cactus";
 import enemy from "./components/enemy";
-import hi from "./components/hi";
 import {
   HALF_GAMEOVER_WIDTH,
   DINO_POSITION_X,
@@ -15,6 +14,9 @@ import {
   ICON_HEIGHT,
   GAMEOVER_HEIGHT,
 } from "./utils/constants";
+
+// Global variable for global pause
+window.pauseGame = false;
 
 if (IS_HIDPI == true) {
   loadSpriteAtlas("sprites/dino_big.png", "sprites/dino_big.json");
@@ -43,14 +45,14 @@ const dino = add([
   area(),
   body(),
   sprite("dino"),
+  "dino"
 ]);
 dino.play("idle");
 
-// // Load handlers
-key_handlers(dino);
+// Load handlers
+handlers(dino);
 deck();
 
 // cloud();
 // cactus();
 // enemy();
-// hi();

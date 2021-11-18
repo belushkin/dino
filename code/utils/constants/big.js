@@ -23,14 +23,16 @@ export const GAMEOVER_HEIGHT = 80;
 export const CACTUS_SPEED = 180;
 export const SMALL_CACTUS_POSITION = 200;
 export const BIG_CACTUS_POSITION = 175;
+export const CACTUS_WAIT_TIME = 40;
 
 // Times constants
 export const TIME_INTERVALS = [0, 1, 2, 3, 4];
 export const TIME_POSITION_OFFSET = 25;
 export const TIME_Y_POSITION = 20;
 export const TIME_X_POSITION = width() - 300;
-export const TIME_APPEAR_INTERVAL = 120;
+export const TIME_APPEAR_INTERVAL = 70;
 export const TIME_HI_INTERVAL = 40;
+export const TIME_SECOND_DELAY = 300;
 export const SPACE_BETWEEN_SCORE_AND_TIME = 150;
 
 // Clouds constants

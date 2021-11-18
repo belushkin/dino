@@ -1,14 +1,17 @@
 import {
   DINO_JUMP_FORCE,
   INITIAL_MOVEMENT_DINO_SPEED,
-} from "./../utils/constants";
+  CACTUS_WAIT_TIME,
+} from "../utils/constants";
 
+import hi from "./hi";
+import cactus from "./cactus";
 import run, { spawnStartFloor } from "./floor";
 
 let ground = false;
 let begin = true;
 
-export default function key_handlers(dino) {
+export default function handlers(dino) {
   spawnStartFloor();
 
   // Space key pressed
@@ -17,6 +20,8 @@ export default function key_handlers(dino) {
       ground = true;
     }
     dino.play("idle");
+    dino.paused = false;
+
     if (dino.grounded()) {
       dino.jump(DINO_JUMP_FORCE);
     }
@@ -28,7 +33,13 @@ export default function key_handlers(dino) {
       dino.play("run");
     }
     if (ground && begin) {
+      // Init handlers
       run();
+      hi();
+      wait(CACTUS_WAIT_TIME, () => {
+        cactus();
+      });
+
       begin = false;
 
       dino.use(move(RIGHT, INITIAL_MOVEMENT_DINO_SPEED));
