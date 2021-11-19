@@ -38,15 +38,14 @@ export default function run() {
     if (f.pos.x > FLOOR_WIDTH_SCREEN) {
       spawnFinishFloor(0);
       destroy(f);
-      destroyAll('start_floor');
+      destroyAll("start_floor");
     }
   });
 
   let spawned = false;
-  let paused = false;
   onUpdate("finish", (f) => {
     // Do nothing if paused
-    if (paused) return;
+    if (pauseGame) return;
 
     f.move(f.speed, 0);
     if (f.pos.x < FLOOR_START_FLOOR_DISAPEAR_X && !spawned) {
@@ -60,8 +59,19 @@ export default function run() {
   });
 
   onCollide("dino", "cactus", (d, c) => {
+    console.log('VZDROCH');
+    // Show gameover icon and text
+    const gameover = get("gameover")[0];
+    const gameovericon = get("gameovericon")[0];
+    gameover.hidden = false;
+    gameovericon.hidden = false;
+
+    // pause all existing cactuses
+    every("cactus", (c) => {
+      c.paused = true;
+    });
+
     d.paused = true;
-    paused = true;
     pauseGame = true;
   });
 }

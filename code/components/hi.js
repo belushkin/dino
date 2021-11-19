@@ -12,25 +12,30 @@ import {
 let times = [];
 let scores = [];
 let score = 0;
+let delta = 0;
+let interval;
 
 export default function hi() {
   // Adding timer
-  const timer = add([{ time: 0, times, scores }]);
+  const timer = add([{ times, scores }, "timer"]);
 
   // Draw numbers with timeout
   let position = TIME_X_POSITION;
   const h = add([
     pos(position - TIME_HI_INTERVAL, TIME_Y_POSITION),
     sprite("hi"),
-    "time",
+    "hi",
   ]);
   h.hidden = true;
 
   setTimeout(function () {
+    // Start counting
+    interval = getInterval()
+
     TIME_INTERVALS.forEach(function (el, index) {
       setTimeout(function () {
         // Adding scores
-        let s = add([pos(position, TIME_Y_POSITION), sprite("0"), "time"]);
+        let s = add([pos(position, TIME_Y_POSITION), sprite("0"), "score"]);
         s.hidden = true;
         scores.push(s);
 
@@ -49,25 +54,63 @@ export default function hi() {
 
   // Update timer
   timer.onUpdate(() => {
-    timer.time += dt();
-    let str = timer.time.toFixed(1).toString().split(".").join("");
+    let str = delta.toString();
     // Draw timer
     for (let i = 0; i < str.length; i++) {
       if (times[TIME_INTERVALS.length - str.length + i]) {
-        times[TIME_INTERVALS.length - str.length + i].unuse("time");
         times[TIME_INTERVALS.length - str.length + i].use(sprite(str[i]));
       }
     }
+  });
 
-    // console.log(str);
-    // if (absnum == 100) {
-    //   // Draw scores
-    //   for (let j = 0; j < str.length; j++) {
-    //     if (scores[TIME_INTERVALS.length - str.length + j]) {
-    //       scores[TIME_INTERVALS.length - str.length + j].unuse('time');
-    //       scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
-    //     }
-    //   }
-    // }
+  onCollide("dino", "cactus", (d, c) => {
+    if (timer.paused) {
+      return;
+    }
+    clearInterval(interval);
+
+    // Pause the update
+    timer.paused = true;
+
+    // Set scores
+    if (score < delta) {
+      score = delta;
+      let str = delta.toString();
+      for (let j = 0; j < str.length; j++) {
+        if (scores[TIME_INTERVALS.length - str.length + j]) {
+          scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
+        }
+      }
+    }
+    delta = 0;
+
+    // Make scores visible
+    every("hi", (h) => {
+      h.hidden = false;
+    });
+    every("score", (s) => {
+      s.hidden = false;
+    });
+  });
+
+  // Space key pressed
+  onKeyPressRepeat("space", () => {
+    // unpause game
+    if (timer.paused == true) {
+      // Reset the timer
+      timer.paused = false;
+
+      interval = getInterval()
+        // Set 0 sprite for every number
+        every("time", (s) => {
+          s.use(sprite("0"));
+        });
+    }
   });
 }
+
+const getInterval = () => {
+  return setInterval(() => {
+    delta = (delta % 360) + 1;
+  }, 100);
+};

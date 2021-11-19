@@ -44,16 +44,21 @@ add([
   "start_floor",
 ]);
 
-// const gameover = add([
-//   pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
-//   sprite("gameover"),
-//   layer("game"),
-// ]);
-// const icon = add([
-//   pos(width() / 2 - HALF_ICON_WIDTH, ICON_HEIGHT),
-//   sprite("icon"),
-//   layer("game"),
-// ]);
+const gameover = add([
+  pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
+  sprite("gameover"),
+  layer("game"),
+  "gameover",
+]);
+gameover.hidden = true;
+
+const icon = add([
+  pos(width() / 2 - HALF_ICON_WIDTH, ICON_HEIGHT),
+  sprite("icon"),
+  layer("game"),
+  "gameovericon",
+]);
+icon.hidden = true;
 
 // Draw dino at the same time over start dino
 const dino = add([
@@ -63,7 +68,6 @@ const dino = add([
   sprite("dino"),
   "dino",
 ]);
-dino.play("idle");
 
 // Load handlers
 handlers(dino);
