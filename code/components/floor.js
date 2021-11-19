@@ -8,15 +8,16 @@ import {
   START_FLOOR_SPEED,
   START_FLOOR_POSITION_X,
   FLOOR_WIDTH_SCREEN,
+  START_FLOOR_POSITION_X_RECTANGLE,
+  FLOOR_WIDTH_HEIGHT,
 } from "./../utils/constants";
 
 export const spawnStartFloor = () => {
   return add([
-    pos(START_FLOOR_POSITION_X, REAL_FLOOR_POSITION_Y),
-    "start",
+    pos(START_FLOOR_POSITION_X_RECTANGLE, REAL_FLOOR_POSITION_Y),
+    "start_rectangle",
     layer("ui"),
-    origin("topright"),
-    sprite("floor", { flipX: true }),
+    rect(FLOOR_WIDTH_SCREEN, FLOOR_WIDTH_HEIGHT),
     { speed: START_FLOOR_SPEED },
   ]);
 };
@@ -32,11 +33,12 @@ export default function run() {
     ]);
   };
 
-  onUpdate("start", (f) => {
+  onUpdate("start_rectangle", (f) => {
     f.move(f.speed, 0);
     if (f.pos.x > FLOOR_WIDTH_SCREEN) {
       spawnFinishFloor(0);
       destroy(f);
+      destroyAll('start_floor');
     }
   });
 

@@ -6,6 +6,7 @@ import {
   TIME_APPEAR_INTERVAL,
   TIME_HI_INTERVAL,
   SPACE_BETWEEN_SCORE_AND_TIME,
+  TIME_SECOND_DELAY,
 } from "./../utils/constants";
 
 let times = [];
@@ -44,7 +45,7 @@ export default function hi() {
         position += TIME_POSITION_OFFSET;
       }, (index + 1) * TIME_APPEAR_INTERVAL);
     });
-  }, 300);
+  }, TIME_SECOND_DELAY);
 
   // Update timer
   timer.onUpdate(() => {

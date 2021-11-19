@@ -13,6 +13,8 @@ import {
   HALF_ICON_WIDTH,
   ICON_HEIGHT,
   GAMEOVER_HEIGHT,
+  REAL_FLOOR_POSITION_Y,
+  START_FLOOR_POSITION_X,
 } from "./utils/constants";
 
 // Global variable for global pause
@@ -27,6 +29,20 @@ if (IS_HIDPI == true) {
 gravity(2400);
 
 layers(["ui", "game"], "game");
+
+// Begin of the game character
+add([
+  pos(DINO_START_POSITION_X, DINO_POSITION_Y),
+  sprite("start"),
+  layer("ui"),
+  "start_position",
+]);
+add([
+  pos(START_FLOOR_POSITION_X, REAL_FLOOR_POSITION_Y),
+  sprite("start_floor"),
+  layer("ui"),
+  "start_floor",
+]);
 
 // const gameover = add([
 //   pos(width() / 2 - HALF_GAMEOVER_WIDTH, GAMEOVER_HEIGHT),
@@ -45,7 +61,7 @@ const dino = add([
   area(),
   body(),
   sprite("dino"),
-  "dino"
+  "dino",
 ]);
 dino.play("idle");
 

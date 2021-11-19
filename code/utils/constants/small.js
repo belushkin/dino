@@ -1,5 +1,6 @@
 // dino
-export const DINO_START_POSITION_X = -2;
+export const DINO_POSITION_X = -2;
+export const DINO_START_POSITION_X = -4;
 export const DINO_POSITION_Y = 99;
 
 // floor
@@ -12,7 +13,9 @@ export const FLOOR_HEIGHT = 1;
 export const FLOOR_SPEED = -320;
 export const START_FLOOR_SPEED = 1000;
 export const FLOOR_WIDTH_SCREEN = 600;
-export const START_FLOOR_POSITION_X = 43;
+export const FLOOR_WIDTH_HEIGHT = 30;
+export const START_FLOOR_POSITION_X = 0; // 43
+export const START_FLOOR_POSITION_X_RECTANGLE = 40;
 
 // Game over text and icon constants
 export const HALF_GAMEOVER_WIDTH = 116;

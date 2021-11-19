@@ -59,6 +59,12 @@
     "width": 3000,
     "height": 50
   },
+  "start_floor": {
+    "x": 4,
+    "y": 105,
+    "width": 1204,
+    "height": 30
+  },
   "cloud": {
     "x": 164,
     "y": 1,

@@ -14,6 +14,9 @@ let begin = true;
 export default function handlers(dino) {
   spawnStartFloor();
 
+  // Get start sprite
+  const start_pos = get("start_position");
+
   // Space key pressed
   onKeyPressRepeat("space", () => {
     if (!ground) {
@@ -21,6 +24,10 @@ export default function handlers(dino) {
     }
     dino.play("idle");
     dino.paused = false;
+
+    if (start_pos.length > 0) {
+      destroyAll("start_position");
+    }
 
     if (dino.grounded()) {
       dino.jump(DINO_JUMP_FORCE);
