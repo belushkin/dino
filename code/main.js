@@ -26,6 +26,10 @@ if (IS_HIDPI == true) {
   loadSpriteAtlas("sprites/dino_small.png", "sprites/dino_small.json");
 }
 
+// Load sounds
+loadSound("jump", "sounds/jump.ogx")
+loadSound("hit", "sounds/hit.ogx")
+
 gravity(2400);
 
 layers(["ui", "game"], "game");

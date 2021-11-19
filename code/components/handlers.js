@@ -20,30 +20,19 @@ export default function handlers(dino) {
   const start_pos = get("start_position");
 
   // Space key pressed
+  // onKeyPress("space", () => {
+  //   play("jump");
+  // })
+
   onKeyPressRepeat("space", () => {
     if (!ground) {
       ground = true;
     }
+    const dino = get("dino")[0];
     dino.play("stay");
 
     // unpause game
-    if (pauseGame == true) {
-      // start the dino
-      dino.paused = false;
-      // unpause components
-      pauseGame = false;
-      // destroy cactuses
-      every("cactus", destroy);
-
-      // hide game over
-      const gameover = get("gameover")[0];
-      const gameovericon = get("gameovericon")[0];
-      gameover.hidden = true;
-      gameovericon.hidden = true;
-
-      // start the spawning of the cactuses
-      wait(3, cactus);
-    }
+    unPause();
 
     if (start_pos.length > 0) {
       destroyAll("start_position");
@@ -51,8 +40,14 @@ export default function handlers(dino) {
 
     if (dino.grounded()) {
       dino.jump(DINO_JUMP_FORCE);
+      if (!begin) {
+        play("jump");
+      }
     }
   });
+
+  // Click anywhere and unpause
+  onClick(() => unPause());
 
   // Ground
   dino.on("ground", () => {
@@ -103,4 +98,26 @@ function idle() {
   });
   // wait a random amount of time to spawn next cloud
   wait(rand(3, 7), idle);
+}
+
+function unPause() {
+  if (pauseGame == true) {
+    const dino = get("dino")[0];
+
+    // start the dino
+    dino.paused = false;
+    // unpause components
+    pauseGame = false;
+    // destroy cactuses
+    every("cactus", destroy);
+
+    // hide game over
+    const gameover = get("gameover")[0];
+    const gameovericon = get("gameovericon")[0];
+    gameover.hidden = true;
+    gameovericon.hidden = true;
+
+    // start the spawning of the cactuses
+    wait(3, cactus);
+  }
 }

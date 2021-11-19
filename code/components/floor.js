@@ -68,6 +68,8 @@ export default function run() {
     gameover.hidden = false;
     gameovericon.hidden = false;
 
+    d.play("hit");
+    play("hit");
     // pause all existing cactuses
     every("cactus", (c) => {
       c.paused = true;

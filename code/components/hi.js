@@ -88,17 +88,21 @@ export default function hi() {
     });
   });
 
+  // Click anywhere and unpause
+  onClick(() => unPause());
   // Space key pressed
-  onKeyPressRepeat("space", () => {
-    // unpause game
-    if (timer.paused == true) {
-      // Reset the timer
-      timer.paused = false;
+  onKeyPressRepeat("space", () => unPause());
+}
 
-      // Set 0 sprite for every number
-      every("time", (s) => {
-        s.use(sprite("0"));
-      });
-    }
-  });
+function unPause() {
+  const timer = get("timer")[0];
+  if (timer.paused == true) {
+    // Reset the timer
+    timer.paused = false;
+
+    // Set 0 sprite for every number
+    every("time", (s) => {
+      s.use(sprite("0"));
+    });
+  }
 }
