@@ -42,7 +42,7 @@ export default function handlers(dino) {
       gameovericon.hidden = true;
 
       // start the spawning of the cactuses
-      cactus();
+      wait(3, cactus);
     }
 
     if (start_pos.length > 0) {
@@ -93,6 +93,9 @@ export default function handlers(dino) {
 }
 
 function idle() {
+  if (ground) {
+    return;
+  }
   const dino = get("dino")[0];
   dino.play("idle");
   wait(0.1, () => {

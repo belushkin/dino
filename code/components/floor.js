@@ -59,7 +59,9 @@ export default function run() {
   });
 
   onCollide("dino", "cactus", (d, c) => {
-    console.log('VZDROCH');
+    if (pauseGame) {
+      return;
+    }
     // Show gameover icon and text
     const gameover = get("gameover")[0];
     const gameovericon = get("gameovericon")[0];

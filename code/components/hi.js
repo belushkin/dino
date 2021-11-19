@@ -13,7 +13,6 @@ let times = [];
 let scores = [];
 let score = 0;
 let delta = 0;
-let interval;
 
 export default function hi() {
   // Adding timer
@@ -29,9 +28,6 @@ export default function hi() {
   h.hidden = true;
 
   setTimeout(function () {
-    // Start counting
-    interval = getInterval()
-
     TIME_INTERVALS.forEach(function (el, index) {
       setTimeout(function () {
         // Adding scores
@@ -54,7 +50,8 @@ export default function hi() {
 
   // Update timer
   timer.onUpdate(() => {
-    let str = delta.toString();
+    delta += dt();
+    let str = delta.toFixed(1).toString().split(".").join("");
     // Draw timer
     for (let i = 0; i < str.length; i++) {
       if (times[TIME_INTERVALS.length - str.length + i]) {
@@ -67,15 +64,13 @@ export default function hi() {
     if (timer.paused) {
       return;
     }
-    clearInterval(interval);
-
     // Pause the update
     timer.paused = true;
 
     // Set scores
     if (score < delta) {
       score = delta;
-      let str = delta.toString();
+      let str = delta.toFixed(1).toString().split(".").join("");
       for (let j = 0; j < str.length; j++) {
         if (scores[TIME_INTERVALS.length - str.length + j]) {
           scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
@@ -100,17 +95,10 @@ export default function hi() {
       // Reset the timer
       timer.paused = false;
 
-      interval = getInterval()
-        // Set 0 sprite for every number
-        every("time", (s) => {
-          s.use(sprite("0"));
-        });
+      // Set 0 sprite for every number
+      every("time", (s) => {
+        s.use(sprite("0"));
+      });
     }
   });
 }
-
-const getInterval = () => {
-  return setInterval(() => {
-    delta = (delta % 360) + 1;
-  }, 100);
-};
