@@ -29,10 +29,10 @@
     }
   },
   "down": {
-    "x": 1865,
-    "y": 3,
-    "width": 236,
-    "height": 100,
+    "x": 939,
+    "y": 20,
+    "width": 118,
+    "height": 27,
     "sliceX": 2,
     "anims": {
       "run": {
@@ -42,6 +42,18 @@
         "loop": true
       },
       "idle": {
+        "from": 0,
+        "to": 1,
+        "speed": 10,
+        "loop": true
+      },
+      "stay": {
+        "from": 0,
+        "to": 1,
+        "speed": 10,
+        "loop": true
+      },
+      "hit": {
         "from": 0,
         "to": 1,
         "speed": 10,

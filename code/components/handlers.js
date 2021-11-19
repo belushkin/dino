@@ -10,6 +10,8 @@ import run, { spawnStartFloor } from "./floor";
 
 let ground = false;
 let begin = true;
+let collided = false;
+let start_pos;
 
 export default function handlers(dino) {
   spawnStartFloor();
@@ -17,7 +19,7 @@ export default function handlers(dino) {
   idle();
 
   // Get start sprite
-  const start_pos = get("start_position");
+  start_pos = get("start_position");
 
   // Space key pressed
   // onKeyPress("space", () => {
@@ -25,25 +27,17 @@ export default function handlers(dino) {
   // })
 
   onKeyPressRepeat("space", () => {
-    if (!ground) {
-      ground = true;
-    }
-    const dino = get("dino")[0];
-    dino.play("stay");
+    jump();
+  });
+  onKeyPressRepeat("up", () => {
+    jump();
+  });
 
-    // unpause game
-    unPause();
-
-    if (start_pos.length > 0) {
-      destroyAll("start_position");
+  onCollide("dino", "cactus", (d, c) => {
+    if (pauseGame) {
+      return;
     }
-
-    if (dino.grounded()) {
-      dino.jump(DINO_JUMP_FORCE);
-      if (!begin) {
-        play("jump");
-      }
-    }
+    collided = true;
   });
 
   // Click anywhere and unpause
@@ -73,7 +67,7 @@ export default function handlers(dino) {
 
   // Down pressed
   onKeyPress("down", () => {
-    if (ground) {
+    if (ground && !collided) {
       dino.use(sprite("down"));
       dino.play("run");
     }
@@ -81,8 +75,9 @@ export default function handlers(dino) {
 
   // Down released
   onKeyRelease("down", () => {
-    if (ground) {
+    if (ground && !collided) {
       dino.use(sprite("dino"));
+      dino.play("run");
     }
   });
 }
@@ -106,10 +101,14 @@ function unPause() {
 
     // start the dino
     dino.paused = false;
+    dino.play("run");
     // unpause components
     pauseGame = false;
     // destroy cactuses
     every("cactus", destroy);
+
+    // mark that handlers might be in use
+    collided = false;
 
     // hide game over
     const gameover = get("gameover")[0];
@@ -119,5 +118,27 @@ function unPause() {
 
     // start the spawning of the cactuses
     wait(3, cactus);
+  }
+}
+
+function jump() {
+  if (!ground) {
+    ground = true;
+  }
+  const dino = get("dino")[0];
+  dino.play("stay");
+
+  // unpause game
+  unPause();
+
+  if (start_pos.length > 0) {
+    destroyAll("start_position");
+  }
+
+  if (dino.grounded()) {
+    dino.jump(DINO_JUMP_FORCE);
+    if (!begin) {
+      play("jump");
+    }
   }
 }
