@@ -5,11 +5,17 @@ import {
 } from "./../utils/constants";
 
 export default function cloud() {
+  // Stop spawning clouds if game is paused
+  if (pauseGame) {
+    return false;
+  }
+
   add([
     pos(width(), Math.random() < 0.5 ? CLOUD_HEIGHT_1 : CLOUD_HEIGHT_2),
     move(LEFT, CLOUD_SPEED),
     layer("ui"),
     sprite("cloud"),
+    "cloud"
   ]);
 
   // wait a random amount of time to spawn next cloud

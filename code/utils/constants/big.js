@@ -42,6 +42,7 @@ export const SPACE_BETWEEN_SCORE_AND_TIME = 150;
 export const CLOUD_SPEED = 180;
 export const CLOUD_HEIGHT_1 = 110;
 export const CLOUD_HEIGHT_2 = 70;
+export const CLOUD_WAIT_TIME = 1.5;
 
 // Enemy constants
 export const ENEMY_SPEED = 180;

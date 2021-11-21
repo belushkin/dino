@@ -2,9 +2,11 @@ import {
   DINO_JUMP_FORCE,
   INITIAL_MOVEMENT_DINO_SPEED,
   CACTUS_WAIT_TIME,
+  CLOUD_WAIT_TIME,
 } from "../utils/constants";
 
 import hi from "./hi";
+import cloud from "./cloud";
 import cactus from "./cactus";
 import run, { spawnStartFloor } from "./floor";
 
@@ -23,14 +25,28 @@ export default function handlers(dino) {
 
   // Space key pressed
   // onKeyPress("space", () => {
-  //   play("jump");
-  // })
+  //   // unpause game
+  //   console.log('ololoev unpause');
+  //   if (dino.grounded()) {
+  //     console.log('gromozeka', dino.pos.y);
+  //     unPause();
+  //   }
+  // });
 
   onKeyPressRepeat("space", () => {
-    jump();
+    if (!collided) jump();
   });
   onKeyPressRepeat("up", () => {
-    jump();
+    if (!collided) jump();
+  });
+
+  // unpause
+  onKeyRelease("space", () => {
+    if (collided) unPause();
+  });
+  // unpause
+  onKeyRelease("up", () => {
+    if (collided) unPause();
   });
 
   onCollide("dino", "cactus", (d, c) => {
@@ -52,6 +68,9 @@ export default function handlers(dino) {
       // Init handlers
       run();
       hi();
+      wait(CACTUS_WAIT_TIME, () => {
+        cloud();
+      });
       wait(CACTUS_WAIT_TIME, () => {
         cactus();
       });
@@ -104,8 +123,10 @@ function unPause() {
     dino.play("run");
     // unpause components
     pauseGame = false;
-    // destroy cactuses
+
+    // destroy cactuses and clouds
     every("cactus", destroy);
+    every("cloud", destroy);
 
     // mark that handlers might be in use
     collided = false;
@@ -127,9 +148,6 @@ function jump() {
   }
   const dino = get("dino")[0];
   dino.play("stay");
-
-  // unpause game
-  unPause();
 
   if (start_pos.length > 0) {
     destroyAll("start_position");

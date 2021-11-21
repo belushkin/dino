@@ -70,8 +70,11 @@ export default function run() {
 
     d.play("hit");
     play("hit");
-    // pause all existing cactuses
+    // pause all existing cactuses and clouds
     every("cactus", (c) => {
+      c.paused = true;
+    });
+    every("cloud", (c) => {
       c.paused = true;
     });
 

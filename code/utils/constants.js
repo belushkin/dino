@@ -27,6 +27,7 @@ export const CACTUS_WAIT_TIME = c.CACTUS_WAIT_TIME;
 export const CLOUD_SPEED = c.CLOUD_SPEED;
 export const CLOUD_HEIGHT_1 = c.CLOUD_HEIGHT_1;
 export const CLOUD_HEIGHT_2 = c.CLOUD_HEIGHT_2;
+export const CLOUD_WAIT_TIME = c.CLOUD_WAIT_TIME;
 
 // Times constants
 export const TIME_INTERVALS = c.TIME_INTERVALS;

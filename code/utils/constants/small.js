@@ -41,6 +41,7 @@ export const SPACE_BETWEEN_SCORE_AND_TIME = 80;
 
 // Clouds constants
 export const CLOUD_SPEED = 80;
+export const CLOUD_WAIT_TIME = 1.5;
 export const CLOUD_HEIGHT_1 = 45;
 export const CLOUD_HEIGHT_2 = 35;
 
