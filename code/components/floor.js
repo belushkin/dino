@@ -62,25 +62,39 @@ export default function run() {
     if (pauseGame) {
       return;
     }
-    // Show gameover icon and text
-    const gameover = get("gameover")[0];
-    const gameovericon = get("gameovericon")[0];
-    gameover.hidden = false;
-    gameovericon.hidden = false;
-
-    d.play("hit");
-    play("hit");
-    // pause all existing cactuses and clouds
-    every("cactus", (c) => {
-      c.paused = true;
-    });
-    every("cloud", (c) => {
-      c.paused = true;
-    });
-
-    d.paused = true;
-    pauseGame = true;
+    collide(d);
   });
+  onCollide("dino", "enemy", (d, c) => {
+    if (pauseGame) {
+      return;
+    }
+    collide(d);
+  });
+}
+
+function collide(dino) {
+  // Show gameover icon and text
+  const gameover = get("gameover")[0];
+  const gameovericon = get("gameovericon")[0];
+  gameover.hidden = false;
+  gameovericon.hidden = false;
+
+  dino.play("hit");
+  play("hit");
+
+  // pause all existing cactuses and clouds and enemies
+  every("cactus", (c) => {
+    c.paused = true;
+  });
+  every("cloud", (c) => {
+    c.paused = true;
+  });
+  every("enemy", (c) => {
+    c.paused = true;
+  });
+
+  dino.paused = true;
+  pauseGame = true;
 }
 
 export function deck() {

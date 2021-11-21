@@ -15,7 +15,7 @@ export default function enemy() {
     move(LEFT, ENEMY_SPEED),
     layer("ui"),
     area(),
-    body(),
+    // body(),
     sprite("enemy"),
     "enemy",
   ]);

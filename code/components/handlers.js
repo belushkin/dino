@@ -25,16 +25,6 @@ export default function handlers(dino) {
   // Get start sprite
   start_pos = get("start_position");
 
-  // Space key pressed
-  // onKeyPress("space", () => {
-  //   // unpause game
-  //   console.log('ololoev unpause');
-  //   if (dino.grounded()) {
-  //     console.log('gromozeka', dino.pos.y);
-  //     unPause();
-  //   }
-  // });
-
   onKeyPressRepeat("space", () => {
     if (!collided) jump();
   });
@@ -57,7 +47,7 @@ export default function handlers(dino) {
     }
     collided = true;
   });
-  onCollide("dino", "cactus", (d, c) => {
+  onCollide("dino", "enemy", (d, c) => {
     if (pauseGame) {
       return;
     }
@@ -131,6 +121,7 @@ function unPause() {
 
     // start the dino
     dino.paused = false;
+    dino.use(sprite("dino"));
     dino.play("run");
     // unpause components
     pauseGame = false;
@@ -138,6 +129,7 @@ function unPause() {
     // destroy cactuses and clouds
     every("cactus", destroy);
     every("cloud", destroy);
+    every("enemy", destroy);
 
     // mark that handlers might be in use
     collided = false;
@@ -150,6 +142,8 @@ function unPause() {
 
     // start the spawning of the cactuses
     wait(3, cactus);
+    wait(3, cloud);
+    wait(3, enemy);
   }
 }
 
