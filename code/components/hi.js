@@ -64,6 +64,16 @@ export default function hi() {
     if (timer.paused) {
       return;
     }
+    collide();
+  });
+  onCollide("dino", "enemy", (d, c) => {
+    if (timer.paused) {
+      return;
+    }
+    collide();
+  });
+
+  function collide() {
     // Pause the update
     timer.paused = true;
 
@@ -86,12 +96,18 @@ export default function hi() {
     every("score", (s) => {
       s.hidden = false;
     });
-  });
+  }
 
   // Click anywhere and unpause
-  onClick(() => unPause());
-  // Space key pressed
-  onKeyPressRepeat("space", () => unPause());
+  onClick(() => () => {
+    if (timer.paused) unPause();
+  });
+  onKeyRelease("space", () => {
+    if (timer.paused) unPause();
+  });
+  onKeyRelease("up", () => {
+    if (timer.paused) unPause();
+  });
 }
 
 function unPause() {

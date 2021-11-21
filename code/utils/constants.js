@@ -10,6 +10,7 @@ export const HALF_GAMEOVER_WIDTH = c.HALF_GAMEOVER_WIDTH;
 export const HALF_ICON_WIDTH = c.HALF_ICON_WIDTH;
 export const ICON_HEIGHT = c.ICON_HEIGHT;
 export const GAMEOVER_HEIGHT = c.GAMEOVER_HEIGHT;
+export const DINO_SCALE_AREA = c.DINO_SCALE_AREA;
 
 // Dino constants
 export const DINO_POSITION_X = c.DINO_POSITION_X;

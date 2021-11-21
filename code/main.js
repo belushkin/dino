@@ -12,6 +12,7 @@ import {
   GAMEOVER_HEIGHT,
   REAL_FLOOR_POSITION_Y,
   START_FLOOR_POSITION_X,
+  DINO_SCALE_AREA,
 } from "./utils/constants";
 
 // Global variable for global pause
@@ -64,7 +65,7 @@ icon.hidden = true;
 // Draw dino at the same time over start dino
 const dino = add([
   pos(DINO_POSITION_X, DINO_POSITION_Y),
-  area(),
+  area({ scale: DINO_SCALE_AREA }),
   body(),
   sprite("dino"),
   "dino",
@@ -73,5 +74,3 @@ const dino = add([
 // Load handlers
 handlers(dino);
 deck();
-
-// enemy();

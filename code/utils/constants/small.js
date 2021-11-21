@@ -2,6 +2,7 @@
 export const DINO_POSITION_X = -2;
 export const DINO_START_POSITION_X = -4;
 export const DINO_POSITION_Y = 99;
+export const DINO_SCALE_AREA = 0.6;
 
 // floor
 export const FLOOR_POSITION_Y = 148;
