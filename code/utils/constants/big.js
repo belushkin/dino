@@ -48,3 +48,4 @@ export const CLOUD_WAIT_TIME = 1.5;
 export const ENEMY_SPEED = 180;
 export const ENEMY_HEIGHT_1 = 130;
 export const ENEMY_HEIGHT_2 = 90;
+export const ENEMY_WAIT_TIME = 1.5;

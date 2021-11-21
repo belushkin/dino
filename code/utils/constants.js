@@ -58,3 +58,4 @@ export const START_FLOOR_POSITION_X_RECTANGLE =
 export const ENEMY_SPEED = c.ENEMY_SPEED;
 export const ENEMY_HEIGHT_1 = c.ENEMY_HEIGHT_1;
 export const ENEMY_HEIGHT_2 = c.ENEMY_HEIGHT_2;
+export const ENEMY_WAIT_TIME = c.ENEMY_WAIT_TIME;

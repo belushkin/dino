@@ -2,9 +2,6 @@ import k from "./kaboom";
 
 import { deck } from "./components/floor";
 import handlers from "./components/handlers";
-import cloud from "./components/cloud";
-// import cactus from "./components/cactus";
-import enemy from "./components/enemy";
 import {
   HALF_GAMEOVER_WIDTH,
   DINO_POSITION_X,
@@ -27,8 +24,8 @@ if (IS_HIDPI == true) {
 }
 
 // Load sounds
-loadSound("jump", "sounds/jump.ogx")
-loadSound("hit", "sounds/hit.ogx")
+loadSound("jump", "sounds/jump.ogx");
+loadSound("hit", "sounds/hit.ogx");
 
 gravity(2400);
 
@@ -77,6 +74,4 @@ const dino = add([
 handlers(dino);
 deck();
 
-// cloud();
-// cactus();
 // enemy();

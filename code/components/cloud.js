@@ -11,11 +11,11 @@ export default function cloud() {
   }
 
   add([
-    pos(width(), Math.random() < 0.5 ? CLOUD_HEIGHT_1 : CLOUD_HEIGHT_2),
+    pos(width(), choose([CLOUD_HEIGHT_1, CLOUD_HEIGHT_2])),
     move(LEFT, CLOUD_SPEED),
     layer("ui"),
     sprite("cloud"),
-    "cloud"
+    "cloud",
   ]);
 
   // wait a random amount of time to spawn next cloud
