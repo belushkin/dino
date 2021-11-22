@@ -8,8 +8,8 @@ import {
 
 import hi from "./hi";
 import cloud from "./cloud";
-import cactus from "./cactus";
-import enemy from "./enemy";
+import obstacles from "./obstacles";
+// import enemy from "./enemy";
 import run, { spawnStartFloor } from "./floor";
 
 let ground = false;
@@ -32,6 +32,9 @@ export default function handlers(dino) {
   onKeyPress("space", () => {
     if (collided) wait(0.2, unPause);
   });
+  onKeyPress("up", () => {
+    if (collided) wait(0.2, unPause);
+  });
 
   onKeyPressRepeat("space", () => {
     if (!collided) jump();
@@ -48,18 +51,18 @@ export default function handlers(dino) {
     net = 0;
   });
 
-  onCollide("dino", "cactus", (d, c) => {
+  onCollide("dino", "obstacle", (d, c) => {
     if (pauseGame) {
       return;
     }
     collided = true;
   });
-  onCollide("dino", "enemy", (d, c) => {
-    if (pauseGame) {
-      return;
-    }
-    collided = true;
-  });
+  // onCollide("dino", "enemy", (d, c) => {
+  //   if (pauseGame) {
+  //     return;
+  //   }
+  //   collided = true;
+  // });
 
   // Click anywhere and unpause
   onClick(() => unPause());
@@ -77,11 +80,11 @@ export default function handlers(dino) {
         cloud();
       });
       wait(CACTUS_WAIT_TIME, () => {
-        cactus();
+        obstacles();
       });
-      wait(ENEMY_WAIT_TIME, () => {
-        enemy();
-      });
+      // wait(ENEMY_WAIT_TIME, () => {
+      //   enemy();
+      // });
 
       begin = false;
 
@@ -134,9 +137,9 @@ function unPause() {
     pauseGame = false;
 
     // destroy cactuses and clouds
-    every("cactus", destroy);
+    every("obstacle", destroy);
     every("cloud", destroy);
-    every("enemy", destroy);
+    // every("enemy", destroy);
 
     // mark that handlers might be in use
     collided = false;
@@ -148,9 +151,9 @@ function unPause() {
     gameovericon.hidden = true;
 
     // start the spawning of the cactuses
-    wait(3, cactus);
+    wait(3, obstacles);
     wait(3, cloud);
-    wait(3, enemy);
+    // wait(3, enemy);
   }
 }
 

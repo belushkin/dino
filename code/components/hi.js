@@ -60,13 +60,7 @@ export default function hi() {
     }
   });
 
-  onCollide("dino", "cactus", (d, c) => {
-    if (timer.paused) {
-      return;
-    }
-    collide();
-  });
-  onCollide("dino", "enemy", (d, c) => {
+  onCollide("dino", "obstacle", (d, c) => {
     if (timer.paused) {
       return;
     }
@@ -101,10 +95,10 @@ export default function hi() {
   // Click anywhere and unpause
   onClick(() => unPause());
 
-  onKeyRelease("space", () => {
+  onKeyPress("space", () => {
     if (timer.paused) wait(0.2, unPause);
   });
-  onKeyRelease("up", () => {
+  onKeyPress("up", () => {
     if (timer.paused) wait(0.2, unPause);
   });
 }

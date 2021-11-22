@@ -57,13 +57,7 @@ export default function run() {
     }
   });
 
-  onCollide("dino", "cactus", (d, c) => {
-    if (pauseGame) {
-      return;
-    }
-    collide(d);
-  });
-  onCollide("dino", "enemy", (d, c) => {
+  onCollide("dino", "obstacle", (d, c) => {
     if (pauseGame) {
       return;
     }
@@ -82,13 +76,10 @@ function collide(dino) {
   play("hit");
 
   // pause all existing cactuses and clouds and enemies
-  every("cactus", (c) => {
+  every("obstacle", (c) => {
     c.paused = true;
   });
   every("cloud", (c) => {
-    c.paused = true;
-  });
-  every("enemy", (c) => {
     c.paused = true;
   });
 
