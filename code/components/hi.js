@@ -100,13 +100,13 @@ export default function hi() {
 
   // Click anywhere and unpause
   onClick(() => () => {
-    if (timer.paused) unPause();
+    if (timer.paused) wait(0.2, unPause);
   });
   onKeyRelease("space", () => {
-    if (timer.paused) unPause();
+    if (timer.paused) wait(0.2, unPause);
   });
   onKeyRelease("up", () => {
-    if (timer.paused) unPause();
+    if (timer.paused) wait(0.2, unPause);
   });
 }
 

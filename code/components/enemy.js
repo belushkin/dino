@@ -2,6 +2,7 @@ import {
   ENEMY_SPEED,
   ENEMY_HEIGHT_1,
   ENEMY_HEIGHT_2,
+  ENEMY_SCALE_AREA,
 } from "./../utils/constants";
 
 export default function enemy() {
@@ -14,8 +15,8 @@ export default function enemy() {
     pos(width(), choose([ENEMY_HEIGHT_1, ENEMY_HEIGHT_2])),
     move(LEFT, ENEMY_SPEED),
     layer("ui"),
-    area(),
-    // body(),
+    area({ scale: ENEMY_SCALE_AREA }),
+    origin("center"),
     sprite("enemy"),
     "enemy",
   ]);

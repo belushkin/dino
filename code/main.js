@@ -7,6 +7,7 @@ import {
   DINO_POSITION_X,
   DINO_POSITION_Y,
   DINO_START_POSITION_X,
+  DINO_START_POSITION_Y,
   HALF_ICON_WIDTH,
   ICON_HEIGHT,
   GAMEOVER_HEIGHT,
@@ -34,15 +35,14 @@ layers(["ui", "game"], "game");
 
 // Begin of the game character
 add([
-  pos(DINO_START_POSITION_X, DINO_POSITION_Y),
+  pos(DINO_START_POSITION_X, DINO_START_POSITION_Y),
   sprite("start"),
-  layer("ui"),
+  origin("center"),
   "start_position",
 ]);
 add([
   pos(START_FLOOR_POSITION_X, REAL_FLOOR_POSITION_Y),
   sprite("start_floor"),
-  layer("ui"),
   "start_floor",
 ]);
 
@@ -66,6 +66,7 @@ icon.hidden = true;
 const dino = add([
   pos(DINO_POSITION_X, DINO_POSITION_Y),
   area({ scale: DINO_SCALE_AREA }),
+  origin("center"),
   body(),
   sprite("dino"),
   "dino",

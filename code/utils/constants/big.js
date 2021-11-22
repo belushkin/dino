@@ -1,12 +1,13 @@
 // dino
 export const DINO_POSITION_X = 0;
 export const DINO_START_POSITION_X = 2;
+export const DINO_START_POSITION_Y = 19;
 export const DINO_POSITION_Y = 189;
 export const DINO_SCALE_AREA = 0.6;
 
 // floor
 export const FLOOR_POSITION_Y = 279;
-export const REAL_FLOOR_POSITION_Y = FLOOR_POSITION_Y-23;
+export const REAL_FLOOR_POSITION_Y = 256;
 export const FLOOR_START_FLOOR_DISAPEAR_X = -1190;
 export const FLOOR_WIDTH = -2400;
 export const FLOOR_HEIGHT = 1;
@@ -50,3 +51,4 @@ export const ENEMY_SPEED = 180;
 export const ENEMY_HEIGHT_1 = 130;
 export const ENEMY_HEIGHT_2 = 90;
 export const ENEMY_WAIT_TIME = 1.5;
+export const ENEMY_SCALE_AREA = 0.6;

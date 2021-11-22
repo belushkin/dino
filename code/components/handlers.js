@@ -25,6 +25,14 @@ export default function handlers(dino) {
   // Get start sprite
   start_pos = get("start_position");
 
+  let net = 0;
+  onKeyDown("space", () => {
+    net += 1;
+  });
+  onKeyPress("space", () => {
+    if (collided) wait(0.2, unPause);
+  });
+
   onKeyPressRepeat("space", () => {
     if (!collided) jump();
   });
@@ -32,13 +40,12 @@ export default function handlers(dino) {
     if (!collided) jump();
   });
 
-  // unpause
+  // Gravity
   onKeyRelease("space", () => {
-    if (collided) unPause();
+    net = 0;
   });
-  // unpause
   onKeyRelease("up", () => {
-    if (collided) unPause();
+    net = 0;
   });
 
   onCollide("dino", "cactus", (d, c) => {
@@ -55,7 +62,9 @@ export default function handlers(dino) {
   });
 
   // Click anywhere and unpause
-  onClick(() => unPause());
+  onClick(() => () => {
+    if (collided) wait(0.2, unPause)
+  });
 
   // Ground
   dino.on("ground", () => {

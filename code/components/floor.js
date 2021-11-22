@@ -16,7 +16,6 @@ export const spawnStartFloor = () => {
   return add([
     pos(START_FLOOR_POSITION_X_RECTANGLE, REAL_FLOOR_POSITION_Y),
     "start_rectangle",
-    layer("ui"),
     rect(FLOOR_WIDTH_SCREEN, FLOOR_WIDTH_HEIGHT),
     { speed: START_FLOOR_SPEED },
   ]);
@@ -101,8 +100,9 @@ export function deck() {
   add([
     rect(width(), FLOOR_HEIGHT),
     pos(0, FLOOR_POSITION_Y),
+    layer("ui"),
     area(),
     solid(),
-    // color(255, 255, 255),
+    // color(0, 0, 0),
   ]);
 }

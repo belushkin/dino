@@ -15,6 +15,7 @@ export const DINO_SCALE_AREA = c.DINO_SCALE_AREA;
 // Dino constants
 export const DINO_POSITION_X = c.DINO_POSITION_X;
 export const DINO_START_POSITION_X = c.DINO_START_POSITION_X;
+export const DINO_START_POSITION_Y = c.DINO_START_POSITION_Y;
 export const DINO_POSITION_Y = c.DINO_POSITION_Y;
 export const DINO_JUMP_FORCE = 800;
 
@@ -60,3 +61,4 @@ export const ENEMY_SPEED = c.ENEMY_SPEED;
 export const ENEMY_HEIGHT_1 = c.ENEMY_HEIGHT_1;
 export const ENEMY_HEIGHT_2 = c.ENEMY_HEIGHT_2;
 export const ENEMY_WAIT_TIME = c.ENEMY_WAIT_TIME;
+export const ENEMY_SCALE_AREA = c.ENEMY_SCALE_AREA;
