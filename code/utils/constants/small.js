@@ -28,8 +28,8 @@ export const GAMEOVER_HEIGHT = 40;
 // Cactuses constants
 export const CACTUS_SPEED = 200;
 export const CACTUS_WAIT_TIME = 1.5;
-export const SMALL_CACTUS_POSITION = 110;
-export const BIG_CACTUS_POSITION = 96;
+export const SMALL_CACTUS_POSITION = 100;
+export const BIG_CACTUS_POSITION = 86;
 
 // Times constants
 export const TIME_INTERVALS = [0, 1, 2, 3, 4];

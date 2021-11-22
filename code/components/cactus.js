@@ -16,7 +16,6 @@ export default function cactus() {
     move(LEFT, CACTUS_SPEED),
     layer("ui"),
     area(),
-    body(),
     sprite(cactusSize + "cactus" + choose([1, 2, 3])),
     "cactus",
   ]);

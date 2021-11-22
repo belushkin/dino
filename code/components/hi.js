@@ -99,9 +99,8 @@ export default function hi() {
   }
 
   // Click anywhere and unpause
-  onClick(() => () => {
-    if (timer.paused) wait(0.2, unPause);
-  });
+  onClick(() => unPause());
+
   onKeyRelease("space", () => {
     if (timer.paused) wait(0.2, unPause);
   });

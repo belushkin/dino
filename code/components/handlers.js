@@ -62,9 +62,7 @@ export default function handlers(dino) {
   });
 
   // Click anywhere and unpause
-  onClick(() => () => {
-    if (collided) wait(0.2, unPause)
-  });
+  onClick(() => unPause());
 
   // Ground
   dino.on("ground", () => {
