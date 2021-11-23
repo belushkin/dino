@@ -6,11 +6,14 @@ import {
   FLOOR_HEIGHT,
   FLOOR_SPEED,
   START_FLOOR_SPEED,
-  START_FLOOR_POSITION_X,
+  FLOOR_MAX_SPEED,
+  ACCELERATION,
   FLOOR_WIDTH_SCREEN,
   START_FLOOR_POSITION_X_RECTANGLE,
   FLOOR_WIDTH_HEIGHT,
 } from "./../utils/constants";
+
+let currentSpeed = FLOOR_SPEED;
 
 export const spawnStartFloor = () => {
   return add([
@@ -28,7 +31,6 @@ export default function run() {
       "finish",
       layer("ui"),
       sprite("floor"),
-      { speed: FLOOR_SPEED },
     ]);
   };
 
@@ -46,7 +48,7 @@ export default function run() {
     // Do nothing if paused
     if (pauseGame) return;
 
-    f.move(f.speed, 0);
+    f.move(currentSpeed, 0);
     if (f.pos.x < FLOOR_START_FLOOR_DISAPEAR_X && !spawned) {
       spawnFinishFloor(width());
       spawned = true;
@@ -54,6 +56,9 @@ export default function run() {
     if (f.pos.x < FLOOR_WIDTH) {
       destroy(f);
       spawned = false;
+    }
+    if (currentSpeed < FLOOR_MAX_SPEED) {
+      currentSpeed += ACCELERATION;
     }
   });
 

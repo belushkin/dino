@@ -1,8 +1,9 @@
 import {
-  CACTUS_SPEED,
+  OBSTACLE_SPEED,
   SMALL_CACTUS_POSITION,
   BIG_CACTUS_POSITION,
-  ENEMY_SPEED,
+  ACCELERATION,
+  OBSTACLE_MAX_SPEED,
   ENEMY_HEIGHT_1,
   ENEMY_HEIGHT_2,
   ENEMY_SCALE_AREA,
@@ -17,6 +18,8 @@ const max_cactus_gap = 300;
 
 const min_enemy_gap = 150;
 const max_enemy_gap = 300;
+
+let currentSpeed = OBSTACLE_SPEED;
 
 export default function obstacles(next = null) {
   // Stop spawning obstacles if game is paused
@@ -44,13 +47,13 @@ function getNextObstacle() {
     const cactusSize = choose([0, 1]);
     id = "cactus";
     nextSize = cactusSize ? BIG_CACTUS_POSITION : SMALL_CACTUS_POSITION;
-    nextSpeed = CACTUS_SPEED;
+    nextSpeed = OBSTACLE_SPEED;
     nextSprite = cactusSize + "cactus" + choose([1, 2, 3]);
     nextPosition = rand(min_cactus_gap, max_cactus_gap);
   } else {
     id = "enemy";
     nextSize = choose([ENEMY_HEIGHT_1, ENEMY_HEIGHT_2]);
-    nextSpeed = ENEMY_SPEED;
+    nextSpeed = OBSTACLE_SPEED;
     nextSprite = "enemy";
     nextPosition = rand(min_enemy_gap, max_enemy_gap);
   }
@@ -67,7 +70,7 @@ function spawnFirstObstacle() {
   const cactusSize = choose([0, 1]);
   add([
     pos(width(), cactusSize ? BIG_CACTUS_POSITION : SMALL_CACTUS_POSITION),
-    move(LEFT, CACTUS_SPEED),
+    move(LEFT, OBSTACLE_SPEED),
     layer("ui"),
     area(),
     cleanup(),
@@ -106,4 +109,10 @@ on("enemy", "timer", () => {
 
 onCollide("dino", "obstacle", (d, c) => {
   possible_obstacles = [0];
+});
+
+onUpdate("obstacle", (f) => {
+  if (currentSpeed < OBSTACLE_MAX_SPEED) {
+    currentSpeed += ACCELERATION;
+  }
 });
