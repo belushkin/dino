@@ -28,6 +28,7 @@ if (IS_HIDPI == true) {
 // Load sounds
 loadSound("jump", "sounds/jump.ogx");
 loadSound("hit", "sounds/hit.ogx");
+loadSound("reached", "sounds/reached.ogx");
 
 gravity(2400);
 

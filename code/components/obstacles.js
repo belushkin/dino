@@ -11,9 +11,10 @@ import {
 
 import { handlespawn } from "../utils/comps";
 
-let possible_obstacles = [0]; // cactuses
+let possible_obstacles = [0]; // cactuses and pterodactyles
+let possible_cactuses = [1]; // cactuses
 
-const min_cactus_gap = 120;
+const min_cactus_gap = 200;
 const max_cactus_gap = 300;
 
 const min_enemy_gap = 150;
@@ -48,7 +49,7 @@ function getNextObstacle() {
     id = "cactus";
     nextSize = cactusSize ? BIG_CACTUS_POSITION : SMALL_CACTUS_POSITION;
     nextSpeed = OBSTACLE_SPEED;
-    nextSprite = cactusSize + "cactus" + choose([1, 2, 3]);
+    nextSprite = cactusSize + "cactus" + choose(possible_cactuses);
     nextPosition = rand(min_cactus_gap, max_cactus_gap);
   } else {
     id = "enemy";
@@ -75,7 +76,7 @@ function spawnFirstObstacle() {
     area(),
     cleanup(),
     handlespawn(getNextObstacle()),
-    sprite(cactusSize + "cactus" + choose([1, 2, 3])),
+    sprite(cactusSize + "cactus" + choose(possible_cactuses)),
     "obstacle",
   ]);
 }
@@ -102,6 +103,14 @@ on("spawn", "obstacle", (m, next) => {
   obstacles(next);
 });
 
+on("cactus_middle", "timer", () => {
+  possible_cactuses.push(2);
+});
+
+on("cactus_big", "timer", () => {
+  possible_cactuses.push(3);
+});
+
 on("enemy", "timer", () => {
   // Adding pterodactyles to the obstacles list
   possible_obstacles.push(1);
@@ -109,6 +118,7 @@ on("enemy", "timer", () => {
 
 onCollide("dino", "obstacle", (d, c) => {
   possible_obstacles = [0];
+  possible_cactuses = [1];
 });
 
 onUpdate("obstacle", (f) => {

@@ -14,8 +14,14 @@ let scores = [];
 let score = 0;
 let delta = 0;
 let enemy = false;
+let cactusMiddle = false;
+let cactusBig = false;
+let reached = 0;
 
 const ENEMIES_APPEAR_TIME_IN_SECONDS = 10;
+const CACTUS_MIDDLE_APPEAR_TIME_IN_SECONDS = 10;
+const CACTUS_BIG_APPEAR_TIME_IN_SECONDS = 20;
+const REACHED_STEP = 10;
 
 export default function hi() {
   // Adding timer
@@ -65,6 +71,24 @@ export default function hi() {
       timer.trigger("enemy");
       enemy = true;
     }
+    if (delta > CACTUS_MIDDLE_APPEAR_TIME_IN_SECONDS && !cactusMiddle) {
+      timer.trigger("cactus_middle");
+      cactusMiddle = true;
+    }
+    if (delta > CACTUS_BIG_APPEAR_TIME_IN_SECONDS && !cactusBig) {
+      timer.trigger("cactus_big");
+      cactusBig = true;
+    }
+    let checkReached = Math.trunc(delta);
+    if (
+      checkReached > 0 &&
+      checkReached % REACHED_STEP == 0 &&
+      checkReached != reached
+    ) {
+      play("reached");
+      reached = checkReached;
+      blink();
+    }
   });
 
   onCollide("dino", "obstacle", (d, c) => {
@@ -100,6 +124,9 @@ export default function hi() {
 
     // Reset enemies flag
     enemy = false;
+
+    // Reset reached
+    reached = 0;
   }
 
   // Click anywhere and unpause
@@ -124,4 +151,15 @@ function unPause() {
       s.use(sprite("0"));
     });
   }
+}
+
+function blink() {
+  for (let i = 0; i < times.length; i++) {
+    times[i].hidden = true;
+  }
+  setTimeout(function () {
+    for (let i = 0; i < times.length; i++) {
+      times[i].hidden = false;
+    }
+  }, 150);
 }
