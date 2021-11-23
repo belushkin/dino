@@ -50,6 +50,6 @@ export const CLOUD_HEIGHT_2 = 35;
 // Enemy constants
 export const ENEMY_SPEED = 180;
 export const ENEMY_HEIGHT_1 = 60;
-export const ENEMY_HEIGHT_2 = 80;
+export const ENEMY_HEIGHT_2 = 90;
 export const ENEMY_WAIT_TIME = 1.5;
 export const ENEMY_SCALE_AREA = 0.6;

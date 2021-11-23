@@ -8,6 +8,10 @@ import {
   ENEMY_SCALE_AREA,
 } from "../utils/constants";
 
+import { handlespawn } from "../utils/comps";
+
+let possible_obstacles = [0]; // cactuses
+
 const min_cactus_gap = 120;
 const max_cactus_gap = 300;
 
@@ -27,22 +31,6 @@ export default function obstacles(next = null) {
   }
 }
 
-// custom comp
-function handlespawn(next) {
-  let spawned = false;
-  return {
-    id: "handlespawn",
-    require: ["pos"],
-    update() {
-      const spos = this.screenPos();
-      if (spos.x < width() - next.position && !spawned) {
-        this.trigger("spawn", next);
-        spawned = true;
-      }
-    },
-  };
-}
-
 // Generating next obstacle
 function getNextObstacle() {
   let nextSize;
@@ -50,7 +38,8 @@ function getNextObstacle() {
   let nextSprite;
   let nextPosition;
   let id;
-  const nextObstacle = choose([0, 1]); // 0 - cactus, 1 - pterodactyl
+
+  const nextObstacle = choose(possible_obstacles); // 0 - cactus, 1 - pterodactyl
   if (nextObstacle === 0) {
     const cactusSize = choose([0, 1]);
     id = "cactus";
@@ -108,4 +97,13 @@ function spawnNextObstacle(next) {
 
 on("spawn", "obstacle", (m, next) => {
   obstacles(next);
+});
+
+on("enemy", "timer", () => {
+  // Adding pterodactyles to the obstacles list
+  possible_obstacles.push(1);
+});
+
+onCollide("dino", "obstacle", (d, c) => {
+  possible_obstacles = [0];
 });

@@ -13,6 +13,9 @@ let times = [];
 let scores = [];
 let score = 0;
 let delta = 0;
+let enemy = false;
+
+const ENEMIES_APPEAR_TIME_IN_SECONDS = 10;
 
 export default function hi() {
   // Adding timer
@@ -58,6 +61,10 @@ export default function hi() {
         times[TIME_INTERVALS.length - str.length + i].use(sprite(str[i]));
       }
     }
+    if (delta > ENEMIES_APPEAR_TIME_IN_SECONDS && !enemy) {
+      timer.trigger("enemy");
+      enemy = true;
+    }
   });
 
   onCollide("dino", "obstacle", (d, c) => {
@@ -90,6 +97,9 @@ export default function hi() {
     every("score", (s) => {
       s.hidden = false;
     });
+
+    // Reset enemies flag
+    enemy = false;
   }
 
   // Click anywhere and unpause

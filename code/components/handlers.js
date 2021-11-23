@@ -3,13 +3,11 @@ import {
   INITIAL_MOVEMENT_DINO_SPEED,
   CACTUS_WAIT_TIME,
   CLOUD_WAIT_TIME,
-  ENEMY_WAIT_TIME,
 } from "../utils/constants";
 
 import hi from "./hi";
 import cloud from "./cloud";
 import obstacles from "./obstacles";
-// import enemy from "./enemy";
 import run, { spawnStartFloor } from "./floor";
 
 let ground = false;
@@ -57,12 +55,6 @@ export default function handlers(dino) {
     }
     collided = true;
   });
-  // onCollide("dino", "enemy", (d, c) => {
-  //   if (pauseGame) {
-  //     return;
-  //   }
-  //   collided = true;
-  // });
 
   // Click anywhere and unpause
   onClick(() => unPause());
@@ -82,9 +74,6 @@ export default function handlers(dino) {
       wait(CACTUS_WAIT_TIME, () => {
         obstacles();
       });
-      // wait(ENEMY_WAIT_TIME, () => {
-      //   enemy();
-      // });
 
       begin = false;
 
@@ -139,7 +128,6 @@ function unPause() {
     // destroy cactuses and clouds
     every("obstacle", destroy);
     every("cloud", destroy);
-    // every("enemy", destroy);
 
     // mark that handlers might be in use
     collided = false;
@@ -153,7 +141,6 @@ function unPause() {
     // start the spawning of the cactuses
     wait(3, obstacles);
     wait(3, cloud);
-    // wait(3, enemy);
   }
 }
 
