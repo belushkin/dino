@@ -119,6 +119,7 @@ on("enemy", "timer", () => {
 onCollide("dino", "obstacle", (d, c) => {
   possible_obstacles = [0];
   possible_cactuses = [1];
+  currentSpeed = OBSTACLE_SPEED;
 });
 
 onUpdate("obstacle", (f) => {

@@ -47,7 +47,6 @@ export default function run() {
   onUpdate("finish", (f) => {
     // Do nothing if paused
     if (pauseGame) return;
-
     f.move(currentSpeed, 0);
     if (f.pos.x < FLOOR_START_FLOOR_DISAPEAR_X && !spawned) {
       spawnFinishFloor(width());
@@ -57,8 +56,8 @@ export default function run() {
       destroy(f);
       spawned = false;
     }
-    if (currentSpeed < FLOOR_MAX_SPEED) {
-      currentSpeed += ACCELERATION;
+    if (currentSpeed > FLOOR_MAX_SPEED) {
+      currentSpeed -= ACCELERATION;
     }
   });
 
@@ -90,6 +89,8 @@ function collide(dino) {
 
   dino.paused = true;
   pauseGame = true;
+
+  currentSpeed = FLOOR_SPEED;
 }
 
 export function deck() {

@@ -9,7 +9,7 @@ export const DINO_INCREASED_WEIGHT = 100;
 export const DINO_JUMP_FORCE = 800;
 
 // speed
-export const ACCELERATION = 0.5;
+export const ACCELERATION = 0.05;
 export const INITIAL_GRAVITY = 1150;
 export const DECREASED_GRAVITY = 350;
 
@@ -22,7 +22,7 @@ export const FLOOR_WIDTH = -1150;
 export const FLOOR_HEIGHT = 1;
 export const FLOOR_SPEED = -320;
 export const START_FLOOR_SPEED = 1000;
-export const FLOOR_MAX_SPEED = -400;
+export const FLOOR_MAX_SPEED = -800;
 export const FLOOR_WIDTH_SCREEN = 600;
 export const FLOOR_WIDTH_HEIGHT = 30;
 export const START_FLOOR_POSITION_X = 0; // 43
@@ -36,7 +36,7 @@ export const GAMEOVER_HEIGHT = 40;
 
 // Cactuses constants
 export const OBSTACLE_SPEED = 320;
-export const OBSTACLE_MAX_SPEED = 400;
+export const OBSTACLE_MAX_SPEED = 800;
 export const CACTUS_WAIT_TIME = 1.5;
 export const SMALL_CACTUS_POSITION = 100;
 export const BIG_CACTUS_POSITION = 86;
