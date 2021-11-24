@@ -10,6 +10,8 @@ export const DINO_JUMP_FORCE = 800;
 
 // speed
 export const ACCELERATION = 0.5;
+export const INITIAL_GRAVITY = 1150;
+export const DECREASED_GRAVITY = 650;
 
 // floor
 export const FLOOR_POSITION_Y = 264;

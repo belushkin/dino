@@ -15,6 +15,7 @@ import {
   START_FLOOR_POSITION_X,
   DINO_SCALE_AREA,
   DINO_INITIAL_WEIGHT,
+  INITIAL_GRAVITY,
 } from "./utils/constants";
 
 // Global variable for global pause
@@ -31,7 +32,7 @@ loadSound("jump", "sounds/jump.ogx");
 loadSound("hit", "sounds/hit.ogx");
 loadSound("reached", "sounds/reached.ogx");
 
-gravity(950);
+gravity(INITIAL_GRAVITY);
 
 layers(["ui", "game"], "game");
 

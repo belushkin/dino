@@ -5,6 +5,8 @@ import {
   CLOUD_WAIT_TIME,
   DINO_INITIAL_WEIGHT,
   DINO_INCREASED_WEIGHT,
+  INITIAL_GRAVITY,
+  DECREASED_GRAVITY,
 } from "../utils/constants";
 
 import hi from "./hi";
@@ -29,9 +31,18 @@ export default function handlers(dino) {
   // Get start sprite
   start_pos = get("start_position");
 
-  let net = 0;
+  let g = 0;
   onKeyDown("space", () => {
-    net += 1;
+    g += 1;
+    if (g > 6) {
+      gravity(DECREASED_GRAVITY);
+    }
+  });
+  onKeyDown("up", () => {
+    g += 1;
+    if (g > 6) {
+      gravity(DECREASED_GRAVITY);
+    }
   });
   onKeyPress("space", () => {
     if (collided) wait(0.2, unPause);
@@ -49,10 +60,12 @@ export default function handlers(dino) {
 
   // Gravity
   onKeyRelease("space", () => {
-    net = 0;
+    g = 0;
+    gravity(INITIAL_GRAVITY);
   });
   onKeyRelease("up", () => {
-    net = 0;
+    g = 0;
+    gravity(INITIAL_GRAVITY);
   });
 
   onCollide("dino", "obstacle", (d, c) => {
@@ -102,7 +115,7 @@ export default function handlers(dino) {
       dino.use(body({ weight: DINO_INCREASED_WEIGHT }));
     }
   });
-  onKeyPressRepeat("down", () => {
+  onKeyDown("down", () => {
     if (ground && !collided && !jump_state && !down_state_repeat) {
       dino.use(sprite("down"));
       dino.play("run");
@@ -171,6 +184,7 @@ function jump() {
   if (!ground) {
     ground = true;
   }
+  gravity(INITIAL_GRAVITY);
   jump_state = true;
   const dino = get("dino")[0];
   dino.play("stay");
