@@ -4,6 +4,9 @@ export const DINO_START_POSITION_X = 19;
 export const DINO_START_POSITION_Y = 112;
 export const DINO_POSITION_Y = 122;
 export const DINO_SCALE_AREA = 0.6;
+export const DINO_INITIAL_WEIGHT = 4;
+export const DINO_INCREASED_WEIGHT = 100;
+export const DINO_JUMP_FORCE = 800;
 
 // speed
 export const ACCELERATION = 0.5;

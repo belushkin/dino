@@ -14,6 +14,7 @@ import {
   REAL_FLOOR_POSITION_Y,
   START_FLOOR_POSITION_X,
   DINO_SCALE_AREA,
+  DINO_INITIAL_WEIGHT,
 } from "./utils/constants";
 
 // Global variable for global pause
@@ -30,7 +31,7 @@ loadSound("jump", "sounds/jump.ogx");
 loadSound("hit", "sounds/hit.ogx");
 loadSound("reached", "sounds/reached.ogx");
 
-gravity(2400);
+gravity(950);
 
 layers(["ui", "game"], "game");
 
@@ -68,7 +69,7 @@ const dino = add([
   pos(DINO_POSITION_X, DINO_POSITION_Y),
   area({ scale: DINO_SCALE_AREA }),
   origin("center"),
-  body(),
+  body({ weight: DINO_INITIAL_WEIGHT }),
   sprite("dino"),
   "dino",
 ]);

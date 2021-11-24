@@ -3,6 +3,8 @@ import {
   INITIAL_MOVEMENT_DINO_SPEED,
   CACTUS_WAIT_TIME,
   CLOUD_WAIT_TIME,
+  DINO_INITIAL_WEIGHT,
+  DINO_INCREASED_WEIGHT,
 } from "../utils/constants";
 
 import hi from "./hi";
@@ -10,10 +12,14 @@ import cloud from "./cloud";
 import obstacles from "./obstacles";
 import run, { spawnStartFloor } from "./floor";
 
+// If ground initialized
 let ground = false;
 let begin = true;
 let collided = false;
 let start_pos;
+let jump_state = false;
+let down_state = false;
+let down_state_repeat = false;
 
 export default function handlers(dino) {
   spawnStartFloor();
@@ -35,10 +41,10 @@ export default function handlers(dino) {
   });
 
   onKeyPressRepeat("space", () => {
-    if (!collided) jump();
+    if (!collided && !down_state) jump();
   });
   onKeyPressRepeat("up", () => {
-    if (!collided) jump();
+    if (!collided && !down_state) jump();
   });
 
   // Gravity
@@ -63,6 +69,7 @@ export default function handlers(dino) {
   dino.on("ground", () => {
     if (ground) {
       dino.play("run");
+      jump_state = false;
     }
     if (ground && begin) {
       // Init handlers
@@ -86,18 +93,34 @@ export default function handlers(dino) {
 
   // Down pressed
   onKeyPress("down", () => {
-    if (ground && !collided) {
+    down_state = true;
+    if (ground && !collided && !jump_state) {
       dino.use(sprite("down"));
       dino.play("run");
     }
+    if (jump_state) {
+      dino.use(body({ weight: DINO_INCREASED_WEIGHT }));
+    }
   });
-
+  onKeyPressRepeat("down", () => {
+    if (ground && !collided && !jump_state && !down_state_repeat) {
+      dino.use(sprite("down"));
+      dino.play("run");
+      down_state_repeat = true;
+    }
+  });
   // Down released
   onKeyRelease("down", () => {
     if (ground && !collided) {
       dino.use(sprite("dino"));
       dino.play("run");
     }
+
+    dino.use(body({ weight: DINO_INITIAL_WEIGHT }));
+
+    // reset down button
+    down_state = false;
+    down_state_repeat = false;
   });
 }
 
@@ -148,6 +171,7 @@ function jump() {
   if (!ground) {
     ground = true;
   }
+  jump_state = true;
   const dino = get("dino")[0];
   dino.play("stay");
 
