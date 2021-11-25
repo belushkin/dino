@@ -2,6 +2,9 @@ import k from "./kaboom";
 
 import { deck } from "./components/floor";
 import handlers from "./components/handlers";
+
+const random_name = require('node-random-name');
+
 import {
   HALF_GAMEOVER_WIDTH,
   DINO_POSITION_X,
@@ -26,6 +29,9 @@ if (IS_HIDPI == true) {
 } else {
   loadSpriteAtlas("sprites/dino_small.png", "sprites/dino_small.json");
 }
+
+// Set random name
+document.getElementById("username").innerText = random_name();
 
 // Load sounds
 loadSound("jump", "sounds/jump.ogx");

@@ -163,6 +163,11 @@
         link_element.type = "text/css";
         s.parentNode.insertBefore(link_element, s);
       })();
+
+      function changeUserName() {
+        let sign = prompt("What's your username?");
+        document.getElementById("username").innerText = sign;
+      }
     </script>
   </head>
 
@@ -180,7 +185,11 @@
           framework. Press Space to start the game online and jump your Dino,
           use down arrow (↓) to duck.
         </p>
+        <div class="__wrapper" style="margin-top: 20px;">
+          Your username: <span id="username" onclick="changeUserName()">gamasos</span>
+        </div>
       </div>
+      
       <canvas id="game_canvas" class="game"></canvas>
     </div>
     {{kaboom}}
