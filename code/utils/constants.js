@@ -27,6 +27,8 @@ export const OBSTACLE_MAX_SPEED = c.OBSTACLE_MAX_SPEED;
 export const SMALL_CACTUS_POSITION = c.SMALL_CACTUS_POSITION;
 export const BIG_CACTUS_POSITION = c.BIG_CACTUS_POSITION;
 export const CACTUS_WAIT_TIME = c.CACTUS_WAIT_TIME;
+export const MIN_CACTUS_GAP = c.MIN_CACTUS_GAP;
+export const MAX_CACTUS_GAP = c.MAX_CACTUS_GAP;
 
 // Clouds constants
 export const CLOUD_SPEED = c.CLOUD_SPEED;
@@ -69,3 +71,5 @@ export const ENEMY_HEIGHT_1 = c.ENEMY_HEIGHT_1;
 export const ENEMY_HEIGHT_2 = c.ENEMY_HEIGHT_2;
 export const ENEMY_WAIT_TIME = c.ENEMY_WAIT_TIME;
 export const ENEMY_SCALE_AREA = c.ENEMY_SCALE_AREA;
+export const MIN_ENEMY_GAP = c.MIN_ENEMY_GAP;
+export const MAX_ENEMY_GAP = c.MAX_ENEMY_GAP;

@@ -33,6 +33,7 @@ loadSound("hit", "sounds/hit.ogx");
 loadSound("reached", "sounds/reached.ogx");
 
 gravity(INITIAL_GRAVITY);
+focus();
 
 layers(["ui", "game"], "game");
 

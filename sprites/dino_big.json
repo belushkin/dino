@@ -46,6 +46,18 @@
         "to": 1,
         "speed": 10,
         "loop": true
+      },
+      "stay": {
+        "from": 0,
+        "to": 1,
+        "speed": 10,
+        "loop": true
+      },
+      "hit": {
+        "from": 0,
+        "to": 1,
+        "speed": 10,
+        "loop": true
       }
     }
   },

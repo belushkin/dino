@@ -40,6 +40,8 @@ export const OBSTACLE_MAX_SPEED = 800;
 export const CACTUS_WAIT_TIME = 1.5;
 export const SMALL_CACTUS_POSITION = 100;
 export const BIG_CACTUS_POSITION = 86;
+export const MIN_CACTUS_GAP = 200;
+export const MAX_CACTUS_GAP = 300;
 
 // Times constants
 export const TIME_INTERVALS = [0, 1, 2, 3, 4];
@@ -62,3 +64,5 @@ export const ENEMY_HEIGHT_1 = 60;
 export const ENEMY_HEIGHT_2 = 90;
 export const ENEMY_WAIT_TIME = 1.5;
 export const ENEMY_SCALE_AREA = 0.6;
+export const MIN_ENEMY_GAP = 150;
+export const MAX_ENEMY_GAP = 300;

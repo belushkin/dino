@@ -7,18 +7,16 @@ import {
   ENEMY_HEIGHT_1,
   ENEMY_HEIGHT_2,
   ENEMY_SCALE_AREA,
+  MIN_CACTUS_GAP,
+  MAX_CACTUS_GAP,
+  MIN_ENEMY_GAP,
+  MAX_ENEMY_GAP,
 } from "../utils/constants";
 
 import { handlespawn } from "../utils/comps";
 
 let possible_obstacles = [0]; // cactuses and pterodactyles
 let possible_cactuses = [1]; // cactuses
-
-const min_cactus_gap = 200;
-const max_cactus_gap = 300;
-
-const min_enemy_gap = 150;
-const max_enemy_gap = 300;
 
 let currentSpeed = OBSTACLE_SPEED;
 
@@ -50,13 +48,13 @@ function getNextObstacle() {
     nextSize = cactusSize ? BIG_CACTUS_POSITION : SMALL_CACTUS_POSITION;
     nextSpeed = OBSTACLE_SPEED;
     nextSprite = cactusSize + "cactus" + choose(possible_cactuses);
-    nextPosition = rand(min_cactus_gap, max_cactus_gap);
+    nextPosition = rand(MIN_CACTUS_GAP, MAX_CACTUS_GAP);
   } else {
     id = "enemy";
     nextSize = choose([ENEMY_HEIGHT_1, ENEMY_HEIGHT_2]);
     nextSpeed = OBSTACLE_SPEED;
     nextSprite = "enemy";
-    nextPosition = rand(min_enemy_gap, max_enemy_gap);
+    nextPosition = rand(MIN_ENEMY_GAP, MAX_ENEMY_GAP);
   }
   return {
     id: id,
@@ -71,7 +69,7 @@ function spawnFirstObstacle() {
   const cactusSize = choose([0, 1]);
   add([
     pos(width(), cactusSize ? BIG_CACTUS_POSITION : SMALL_CACTUS_POSITION),
-    move(LEFT, OBSTACLE_SPEED),
+    move(LEFT, currentSpeed),
     layer("ui"),
     area(),
     cleanup(),
@@ -84,7 +82,7 @@ function spawnFirstObstacle() {
 function spawnNextObstacle(next) {
   const obstacle = add([
     pos(width(), next.size),
-    move(LEFT, next.speed),
+    move(LEFT, currentSpeed),
     layer("ui"),
     area(),
     cleanup(),
