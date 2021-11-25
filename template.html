@@ -57,6 +57,37 @@
       .game {
         margin: 0 auto;
       }
+      .high-scores {
+        color: #767676;
+        margin-bottom: 18px;
+        display: inline-block;
+        vertical-align: top;
+        max-width: 290px;
+      }
+      .high-scores:first-child {
+        margin-right: 50px;
+      }
+      .high-scores .headline {
+        margin: 0 0 14px;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .high-scores ul {
+        width: 230px;
+        margin: 0 auto;
+        padding: 0;
+      }
+      .high-scores ul li {
+        margin: 0 0 3px;
+        font-size: 13px;
+        overflow: hidden;
+      }
       /* Github ribbon */
       #forkongithub a {
         background: #000;
@@ -153,6 +184,58 @@
       <canvas id="game_canvas" class="game"></canvas>
     </div>
     {{kaboom}}
+    <div class="__wrapper">
+      <div class="high-scores">
+        <h2 class="headline">5 highest scores of the day:</h2>
+        <ul>
+          <li>
+            <span class="user">cduck</span>
+            <span class="result" id="score-1">15680</span>
+          </li>
+          <li>
+            <span class="user">Anonymuod</span>
+            <span class="result" id="score-2">8256</span>
+          </li>
+          <li>
+            <span class="user">G</span>
+            <span class="result" id="score-3">7994</span>
+          </li>
+          <li>
+            <span class="user">Angy</span>
+            <span class="result" id="score-4">5396</span>
+          </li>
+          <li>
+            <span class="user">Mudk1d</span>
+            <span class="result" id="score-5">3731</span>
+          </li>
+        </ul>
+      </div>
+      <div class="high-scores">
+        <h2 class="headline">Top 5 of all time:</h2>
+        <ul>
+          <li>
+            <span class="user">LOL</span>
+            <span class="result" id="score-7">199999</span>
+          </li>
+          <li>
+            <span class="user">JLonCVO</span>
+            <span class="result" id="score-8">165216</span>
+          </li>
+          <li>
+            <span class="user">Oblivion</span>
+            <span class="result" id="score-9">152737</span>
+          </li>
+          <li>
+            <span class="user">Aditya Aryan</span>
+            <span class="result" id="score-10">151651</span>
+          </li>
+          <li>
+            <span class="user">LOUNA LA BLG</span>
+            <span class="result" id="score-11">151382</span>
+          </li>
+        </ul>
+      </div>
+    </div>
     <footer class="other-versions __wrapper">
       <div class="copyright">
         &copy; 2021-... - Google Chrome Dinosaur Game Online

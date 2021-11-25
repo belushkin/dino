@@ -3,8 +3,10 @@
 	"dependencies": {
 		"@replit/database": "^2.0.1",
 		"chokidar": "^3.5.2",
+		"esbuild": "^0.13.15",
 		"express": "^4.17.1",
 		"kaboom": "2000.1.0",
+		"node-random-name": "^1.0.1",
 		"stacktrace-js": "^2.0.2",
 		"ws": "^8.2.0"
 	}
