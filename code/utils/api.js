@@ -31,7 +31,9 @@ export const addScore = (name, score) => {
 };
 
 export const getLast5Scores = () => {
+  const d = new Date();
   db.collection("scores")
+    .where("date", ">", d.setDate(d.getDate() - 1))
     .orderBy("date", "desc")
     .orderBy("score", "desc")
     .limit(5)
@@ -105,8 +107,5 @@ export const addNewRecord = (key) => {
 };
 
 export const getRecords = () => {
-  return db
-    .collection("records")
-    .orderBy('id', 'asc')
-    .get();
+  return db.collection("records").orderBy("id", "asc").get();
 };
