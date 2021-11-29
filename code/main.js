@@ -3,7 +3,7 @@ import k from "./kaboom";
 import { deck } from "./components/floor";
 import handlers from "./components/handlers";
 
-import { getLast5Scores, getLastAll5Scores, addNewRecord } from "./utils/api";
+import { getLast5Scores, getLastAll5Scores } from "./utils/api";
 import { showchart } from "./utils/chart";
 
 import {
@@ -37,7 +37,6 @@ getLastAll5Scores();
 
 // Show chart
 showchart();
-addNewRecord();
 
 // Load sounds
 loadSound("jump", "sounds/jump.ogx");
