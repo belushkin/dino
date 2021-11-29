@@ -2,23 +2,33 @@
 
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-control" content="public" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    />
     <title>T-Rex Dinosaur Game - Chrome Dino Runner Online</title>
     <meta
       name="description"
       content="T-Rex Dinosaur - a replica of the replica of the Dino game from Chrome written in KaboomJs framework. Press Space to start the game online and jump your Dino, use down arrow (↓) to duck."
     />
-    <meta charset="utf-8" />
+    <meta property="og:title" content="Chrome Dino Game" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://chromedino.com" />
+    <meta property="og:image" content="/img/chrome_dino_runner.png" />
+    <meta property="og:site_name" content="Chrome_Dino" />
+    <meta
+      property="og:description"
+      content="Chrome T-Rex dinosaur game online with scores (records)"
+    />
     <style>
-      /* * {
-        margin: 0;
-      } */
       html,
       body {
+        padding: 0;
+        margin: 0;
         width: 100%;
         height: 100%;
-        /* overflow: hidden; */
-        font-family: Open Sans;
-        color: #2b2b2b;
       }
       #chart {
         max-width: 650px;
@@ -71,6 +81,14 @@
       .high-scores:first-child {
         margin-right: 50px;
       }
+      @media (max-width: 520px) {
+        .high-scores {
+          margin: 0 auto 48px;
+        }
+        .high-scores:first-child {
+          margin-right: auto;
+        }
+      }
       .high-scores .headline {
         margin: 0 0 14px;
         font-size: 13px;
@@ -116,6 +134,7 @@
         font-size: 14px;
         margin: 0 3px 5px;
       }
+
       /* Github ribbon */
       #forkongithub a {
         background: #000;
