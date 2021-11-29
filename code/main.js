@@ -3,7 +3,7 @@ import k from "./kaboom";
 import { deck } from "./components/floor";
 import handlers from "./components/handlers";
 
-const random_name = require('node-random-name');
+import { getLast5Scores } from "./utils/api";
 
 import {
   HALF_GAMEOVER_WIDTH,
@@ -30,8 +30,7 @@ if (IS_HIDPI == true) {
   loadSpriteAtlas("sprites/dino_small.png", "sprites/dino_small.json");
 }
 
-// Set random name
-document.getElementById("username").innerText = random_name();
+getLast5Scores();
 
 // Load sounds
 loadSound("jump", "sounds/jump.ogx");

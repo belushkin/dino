@@ -88,6 +88,13 @@
         font-size: 13px;
         overflow: hidden;
       }
+      .high-scores ul li span.user {
+        float: left;
+        max-width: 180px;
+      }
+      .high-scores ul li span.result {
+        float: right;
+      }
       /* Github ribbon */
       #forkongithub a {
         background: #000;
@@ -186,7 +193,7 @@
           use down arrow (↓) to duck.
         </p>
         <div class="__wrapper" style="margin-top: 20px;">
-          Your username: <span id="username" onclick="changeUserName()">gamasos</span>
+          Your username: <span id="username" onclick="changeUserName()"></span>
         </div>
       </div>
       
@@ -196,51 +203,30 @@
     <div class="__wrapper">
       <div class="high-scores">
         <h2 class="headline">5 highest scores of the day:</h2>
-        <ul>
-          <li>
-            <span class="user">cduck</span>
-            <span class="result" id="score-1">15680</span>
-          </li>
-          <li>
-            <span class="user">Anonymuod</span>
-            <span class="result" id="score-2">8256</span>
-          </li>
-          <li>
-            <span class="user">G</span>
-            <span class="result" id="score-3">7994</span>
-          </li>
-          <li>
-            <span class="user">Angy</span>
-            <span class="result" id="score-4">5396</span>
-          </li>
-          <li>
-            <span class="user">Mudk1d</span>
-            <span class="result" id="score-5">3731</span>
-          </li>
-        </ul>
+        <ul id="last5"></ul>
       </div>
       <div class="high-scores">
         <h2 class="headline">Top 5 of all time:</h2>
-        <ul>
+        <ul id="last5all">
           <li>
             <span class="user">LOL</span>
-            <span class="result" id="score-7">199999</span>
+            <span class="result">199999</span>
           </li>
           <li>
             <span class="user">JLonCVO</span>
-            <span class="result" id="score-8">165216</span>
+            <span class="result">165216</span>
           </li>
           <li>
             <span class="user">Oblivion</span>
-            <span class="result" id="score-9">152737</span>
+            <span class="result">152737</span>
           </li>
           <li>
             <span class="user">Aditya Aryan</span>
-            <span class="result" id="score-10">151651</span>
+            <span class="result">151651</span>
           </li>
           <li>
             <span class="user">LOUNA LA BLG</span>
-            <span class="result" id="score-11">151382</span>
+            <span class="result">151382</span>
           </li>
         </ul>
       </div>

@@ -9,6 +9,11 @@ import {
   TIME_SECOND_DELAY,
 } from "./../utils/constants";
 
+import { addScore } from "./../utils/api";
+
+const random_name = require("node-random-name");
+
+let name = random_name();
 let times = [];
 let scores = [];
 let score = 0;
@@ -22,6 +27,9 @@ const ENEMIES_APPEAR_TIME_IN_SECONDS = 10;
 const CACTUS_MIDDLE_APPEAR_TIME_IN_SECONDS = 10;
 const CACTUS_BIG_APPEAR_TIME_IN_SECONDS = 20;
 const REACHED_STEP = 10;
+
+// Set random name
+document.getElementById("username").innerText = name;
 
 export default function hi() {
   // Adding timer
@@ -111,6 +119,7 @@ export default function hi() {
           scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
         }
       }
+      addScore(name, parseInt(str));
     }
     delta = 0;
 
