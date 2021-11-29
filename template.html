@@ -9,16 +9,20 @@
     />
     <meta charset="utf-8" />
     <style>
-      * {
+      /* * {
         margin: 0;
-      }
+      } */
       html,
       body {
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        /* overflow: hidden; */
         font-family: Open Sans;
         color: #2b2b2b;
+      }
+      #chart {
+        max-width: 650px;
+        margin: 35px auto;
       }
       canvas {
         display: block;
@@ -94,6 +98,23 @@
       }
       .high-scores ul li span.result {
         float: right;
+      }
+      .iframe {
+        border: 2px solid #2e3542;
+        padding: 10px 15px;
+        font-size: 13px;
+        background: #f7f7f7;
+        color: #2e3542;
+      }
+      footer .copyright {
+        color: #444;
+        margin: 0 10px;
+        font-size: 12px;
+      }
+      .vote-form button {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin: 0 3px 5px;
       }
       /* Github ribbon */
       #forkongithub a {
@@ -176,6 +197,30 @@
         document.getElementById("username").innerText = sign;
       }
     </script>
+    <script>
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+        );
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+        );
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+        );
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+      // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+      // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+      var _seed = 42;
+      Math.random = function () {
+        _seed = (_seed * 16807) % 2147483647;
+        return (_seed - 1) / 2147483646;
+      };
+    </script>
   </head>
 
   <body>
@@ -192,11 +237,12 @@
           framework. Press Space to start the game online and jump your Dino,
           use down arrow (↓) to duck.
         </p>
-        <div class="__wrapper" style="margin-top: 20px;">
-          Your username: <span id="username" onclick="changeUserName()"></span>
+        <div class="__wrapper">
+          Your username:
+          <b><span id="username" onclick="changeUserName()"></span></b>
         </div>
       </div>
-      
+
       <canvas id="game_canvas" class="game"></canvas>
     </div>
     {{kaboom}}
@@ -207,34 +253,43 @@
       </div>
       <div class="high-scores">
         <h2 class="headline">Top 5 of all time:</h2>
-        <ul id="last5all">
-          <li>
-            <span class="user">LOL</span>
-            <span class="result">199999</span>
-          </li>
-          <li>
-            <span class="user">JLonCVO</span>
-            <span class="result">165216</span>
-          </li>
-          <li>
-            <span class="user">Oblivion</span>
-            <span class="result">152737</span>
-          </li>
-          <li>
-            <span class="user">Aditya Aryan</span>
-            <span class="result">151651</span>
-          </li>
-          <li>
-            <span class="user">LOUNA LA BLG</span>
-            <span class="result">151382</span>
-          </li>
-        </ul>
+        <ul id="last5all"></ul>
       </div>
     </div>
     <footer class="other-versions __wrapper">
+      <div class="___wrapper">
+        <h3>What is your best score in T-Rex game?</h3>
+        <div id="mc-container">
+          <form
+            action="/"
+            method="post"
+            class="vote-form"
+            id="vote-form"
+            onsubmit="return false;"
+          >
+            <button id="100">100-499</button>
+            <button id="500">500-1999</button>
+            <button id="2000">2000-4999</button>
+            <button id="5000">5000-9999</button>
+            <button id="10000">10000+</button>
+          </form>
+          <div id="chart" style="display: none"></div>
+        </div>
+        <h3>Install the Dino game on your website:</h3>
+        <div id="mc-container">
+          <div class="iframe">
+            &lt;iframe src="http://0.0.0.0:8000/" frameborder="0" scrolling="no"
+            width="100%" height="100%" loading="lazy"&gt;&lt;/iframe&gt;<br />
+            &lt;style type="text/css"&gt;iframe { position: absolute; width:
+            100%; height: 100%; z-index: 999; }&lt;/style&gt;
+          </div>
+        </div>
+      </div>
+      <br />
       <div class="copyright">
         &copy; 2021-... - Google Chrome Dinosaur Game Online
-      </footer>
+      </div>
     </footer>
+    <br />
   </body>
 </html>

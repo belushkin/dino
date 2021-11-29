@@ -13,7 +13,6 @@ import { addScore } from "./../utils/api";
 
 const random_name = require("node-random-name");
 
-let name = random_name();
 let times = [];
 let scores = [];
 let score = 0;
@@ -29,7 +28,7 @@ const CACTUS_BIG_APPEAR_TIME_IN_SECONDS = 20;
 const REACHED_STEP = 10;
 
 // Set random name
-document.getElementById("username").innerText = name;
+document.getElementById("username").innerText = random_name();
 
 export default function hi() {
   // Adding timer
@@ -118,6 +117,10 @@ export default function hi() {
         if (scores[TIME_INTERVALS.length - str.length + j]) {
           scores[TIME_INTERVALS.length - str.length + j].use(sprite(str[j]));
         }
+      }
+      let name = document.getElementById("username").innerText;
+      if (!name) {
+        name = random_name();
       }
       addScore(name, parseInt(str));
     }
